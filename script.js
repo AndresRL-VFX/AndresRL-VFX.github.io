@@ -3,129 +3,123 @@
    -> Edit this array to add / remove / change projects.
    -> category must match the buttons' data-filter values:
       "vfx-shader" | "technical-artist" | "3d-modeling" | "videogames" | "programming"
-   -> thumb: path to an image (e.g. "img/fkc-flamethrower.jpg").
+   -> thumb: path to the card's cover image (e.g. "img/flamethrower.jpg").
       Leave it as "" to show a text placeholder instead.
-   -> video: "" if you don't have a video yet, or a YouTube/Vimeo
-      embed URL, e.g. "https://www.youtube.com/embed/VIDEO_ID"
-   -> gallery: array of image paths shown in the lightbox.
+   -> desc: overall project description (shown once, below the viewer).
+   -> media: ORDERED list of everything shown when the project opens —
+      mix videos and photos freely, in any order, and give EACH ONE
+      its own caption explaining what you did in that specific clip/shot.
+      Two item types:
+        { type: "video", src: "https://www.youtube.com/embed/VIDEO_ID", caption: "..." }
+        { type: "image", src: "img/yourphoto.jpg",                      caption: "..." }
+      The first item in the array is what opens by default.
+      Leave media: [] if you don't have anything uploaded yet — the
+      project will still open showing just the title and description.
 ========================================================= */
 const PROJECTS = [
   {
     title: "Flamethrower VFX",
     subtitle: "VFX Graph · Fighting Krazy Chickens",
     category: "vfx-shader",
-    thumb: "img/Werewolf.png",
-    video: "",
+    thumb: "",
     desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
-    gallery: []
+    media: []
   },
   {
     title: "Holographic Card Shader",
     subtitle: "Shader Graph · Fighting Krazy Chickens",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "Holographic rainbow card shader driven by emission and a LUT, using the Modulo node to build the pattern.",
-    gallery: []
+    media: []
   },
   {
     title: "Warning Decal Shader",
     subtitle: "Shader Graph · Fighting Krazy Chickens",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "Ground warning decal using BlendOp Max and ZTest LEqual, driven by a singleton manager for overlap handling.",
-    gallery: []
+    media: []
   },
   {
     title: "Grass Shader",
     subtitle: "GPU Instancing · Fighting Krazy Chickens",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "GPU-instanced grass with player interaction bending and cylindrical billboarding.",
-    gallery: []
+    media: []
   },
   {
     title: "Rim Light Edge Detection",
     subtitle: "Renderer Feature · Fighting Krazy Chickens",
     category: "technical-artist",
     thumb: "",
-    video: "",
     desc: "Screen-space rim light Renderer Feature using Roberts Cross edge detection and stencil buffer layer filtering.",
-    gallery: []
+    media: []
   },
   {
     title: "Master Particle Uber-Shader",
     subtitle: "URP · Fighting Krazy Chickens",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "Master particle shader for URP, built as a reusable base for every effect in the game.",
-    gallery: []
+    media: []
   },
   {
     title: "Stylized Water & Waterfall",
     subtitle: "Unity 6 URP · Personal Project",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "Water and waterfall shader with world-space depth, HSV color lerp, screen-space refraction, intersection foam and Voronoi flow glare.",
-    gallery: []
+    media: []
   },
   {
     title: "Lava Claw Attack VFX",
     subtitle: "Niagara · Unreal Engine 5",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "Lava/fire claw attack VFX built in Niagara, submitted to The Rookies.",
-    gallery: []
+    media: []
   },
   {
     title: "Chaos Destruction Sequence",
     subtitle: "Unreal Engine 5",
     category: "technical-artist",
     thumb: "",
-    video: "",
     desc: "Destruction sequence using Chaos physics, a Level Sequence camera and Field System actors.",
-    gallery: []
+    media: []
   },
   {
     title: "PCG Egg / Corruption System",
     subtitle: "Unreal Engine 5",
     category: "technical-artist",
     thumb: "",
-    video: "",
     desc: "Procedural egg/corruption system using Mesh Sampler, Copy Points and spline-based organic veins.",
-    gallery: []
+    media: []
   },
   {
     title: "PCG Roller Coaster",
     subtitle: "Unreal Engine 5",
     category: "technical-artist",
     thumb: "",
-    video: "",
     desc: "Procedural roller coaster with Blueprint-exposed parameters.",
-    gallery: []
+    media: []
   },
   {
     title: "AI Boss Fight System",
     subtitle: "Unity · GPT-4o-mini · Whisper",
     category: "programming",
     thumb: "",
-    video: "",
     desc: "AI-driven boss fight system in Unity, using GPT-4o-mini, Whisper and a Python TCP server.",
-    gallery: []
+    media: []
   },
   {
     title: "Gokui",
     subtitle: "Internship · Arscade Studios",
     category: "vfx-shader",
     thumb: "",
-    video: "",
     desc: "VFX and technical shader work developed during the Technical VFX Artist internship.",
-    gallery: []
+    media: []
   },
 ];
 
@@ -182,23 +176,57 @@ document.querySelectorAll('.exp-tab').forEach(tab => {
 
 /* ========== LIGHTBOX ========== */
 const lightbox = document.getElementById('lightbox');
-const lbVideo = document.getElementById('lightboxVideo');
+const lbViewer = document.getElementById('lightboxViewer');
+const lbCaption = document.getElementById('lightboxCaption');
+const lbThumbs = document.getElementById('lightboxThumbs');
 const lbTag = document.getElementById('lightboxTag');
 const lbTitle = document.getElementById('lightboxTitle');
 const lbDesc = document.getElementById('lightboxDesc');
-const lbGallery = document.getElementById('lightboxGallery');
+
+let currentMedia = [];
+
+function renderMediaItem(item, title){
+  if (!item) { lbViewer.innerHTML = ''; lbCaption.textContent = ''; return; }
+  lbViewer.innerHTML = item.type === 'video'
+    ? `<iframe src="${item.src}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    : `<img src="${item.src}" alt="${title}">`;
+  lbCaption.textContent = item.caption || '';
+}
+
+function setActiveThumb(index){
+  lbThumbs.querySelectorAll('.lightbox-thumb').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+}
 
 function openLightbox(p){
   lbTag.textContent = p.subtitle;
   lbTitle.textContent = p.title;
   lbDesc.textContent = p.desc;
+  currentMedia = p.media || [];
 
-  lbVideo.innerHTML = p.video
-    ? `<iframe src="${p.video}" title="${p.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-    : '';
-  lbVideo.style.display = p.video ? 'block' : 'none';
+  renderMediaItem(currentMedia[0], p.title);
 
-  lbGallery.innerHTML = p.gallery.map(src => `<img src="${src}" alt="${p.title}">`).join('');
+  if (currentMedia.length > 1){
+    lbThumbs.style.display = 'flex';
+    lbThumbs.innerHTML = currentMedia.map((item, i) => `
+      <div class="lightbox-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
+        ${item.type === 'video'
+          ? `<span class="thumb-play">▶</span>`
+          : `<img src="${item.src}" alt="">`}
+      </div>
+    `).join('');
+    lbThumbs.querySelectorAll('.lightbox-thumb').forEach(el => {
+      el.addEventListener('click', () => {
+        const i = Number(el.dataset.index);
+        renderMediaItem(currentMedia[i], p.title);
+        setActiveThumb(i);
+      });
+    });
+  } else {
+    lbThumbs.style.display = 'none';
+    lbThumbs.innerHTML = '';
+  }
 
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -207,7 +235,8 @@ function openLightbox(p){
 function closeLightbox(){
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
-  lbVideo.innerHTML = '';
+  lbViewer.innerHTML = '';
+  lbCaption.textContent = '';
 }
 
 document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
