@@ -17,7 +17,7 @@ const PROJECTS = [
     thumb: "",
     video: "",
     desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
-    gallery: []
+    gallery: [img/Werewolf.png]
   },
   {
     title: "Holographic Card Shader",
