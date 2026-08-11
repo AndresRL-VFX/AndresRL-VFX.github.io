@@ -1,130 +1,130 @@
 /* =========================================================
-   DATOS DE PROYECTOS
-   -> Edita este array para añadir/quitar/cambiar proyectos.
-   -> category debe coincidir con data-filter de los botones:
-      "sunblind" | "shaders" | "unreal" | "academic"
-   -> thumb: ruta a una imagen (ej: "img/fkc-flamethrower.jpg").
-      Si la dejas vacía "", se muestra un placeholder de texto.
-   -> video: "" si no tienes vídeo todavía, o un embed de
-      YouTube/Vimeo, ej: "https://www.youtube.com/embed/VIDEO_ID"
-   -> gallery: array de rutas de imágenes para el lightbox.
+   PROJECT DATA
+   -> Edit this array to add / remove / change projects.
+   -> category must match the buttons' data-filter values:
+      "vfx-shader" | "technical-artist" | "3d-modeling" | "videogames" | "programming"
+   -> thumb: path to an image (e.g. "img/fkc-flamethrower.jpg").
+      Leave it as "" to show a text placeholder instead.
+   -> video: "" if you don't have a video yet, or a YouTube/Vimeo
+      embed URL, e.g. "https://www.youtube.com/embed/VIDEO_ID"
+   -> gallery: array of image paths shown in the lightbox.
 ========================================================= */
 const PROJECTS = [
   {
     title: "Flamethrower VFX",
     subtitle: "VFX Graph · Fighting Krazy Chickens",
-    category: "sunblind",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Efecto de lanzallamas en VFX Graph, con espacio de simulación local/mundial y anclaje mediante Position Constraint.",
+    desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
     gallery: []
   },
   {
     title: "Holographic Card Shader",
     subtitle: "Shader Graph · Fighting Krazy Chickens",
-    category: "sunblind",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Shader holográfico para cartas con arcoíris basado en emisión y LUT, usando el nodo Modulo para el patrón.",
+    desc: "Holographic rainbow card shader driven by emission and a LUT, using the Modulo node to build the pattern.",
     gallery: []
   },
   {
     title: "Warning Decal Shader",
     subtitle: "Shader Graph · Fighting Krazy Chickens",
-    category: "sunblind",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Decal de aviso en el suelo con BlendOp Max y ZTest LEqual, gestionado por un manager singleton para el solapamiento.",
+    desc: "Ground warning decal using BlendOp Max and ZTest LEqual, driven by a singleton manager for overlap handling.",
     gallery: []
   },
   {
     title: "Grass Shader",
     subtitle: "GPU Instancing · Fighting Krazy Chickens",
-    category: "sunblind",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Hierba con instanciado por GPU, interacción con el jugador (bending) y billboarding cilíndrico.",
+    desc: "GPU-instanced grass with player interaction bending and cylindrical billboarding.",
     gallery: []
   },
   {
     title: "Rim Light Edge Detection",
     subtitle: "Renderer Feature · Fighting Krazy Chickens",
-    category: "sunblind",
+    category: "technical-artist",
     thumb: "",
     video: "",
-    desc: "Renderer Feature de rim light en espacio de pantalla con detección de bordes Roberts Cross y filtrado por stencil.",
+    desc: "Screen-space rim light Renderer Feature using Roberts Cross edge detection and stencil buffer layer filtering.",
     gallery: []
   },
   {
     title: "Master Particle Uber-Shader",
     subtitle: "URP · Fighting Krazy Chickens",
-    category: "sunblind",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Shader maestro para partículas en URP, pensado como base reutilizable para todos los efectos del juego.",
+    desc: "Master particle shader for URP, built as a reusable base for every effect in the game.",
     gallery: []
   },
   {
     title: "Stylized Water & Waterfall",
-    subtitle: "Unity 6 URP · Proyecto personal",
-    category: "shaders",
+    subtitle: "Unity 6 URP · Personal Project",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Shader de agua y cascada con profundidad en espacio del mundo, lerp de color HSV, refracción en espacio de pantalla, espuma de intersección y flow glare con Voronoi.",
+    desc: "Water and waterfall shader with world-space depth, HSV color lerp, screen-space refraction, intersection foam and Voronoi flow glare.",
     gallery: []
   },
   {
     title: "Lava Claw Attack VFX",
     subtitle: "Niagara · Unreal Engine 5",
-    category: "unreal",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "VFX de ataque de garra de lava/fuego en Niagara, presentado a The Rookies.",
+    desc: "Lava/fire claw attack VFX built in Niagara, submitted to The Rookies.",
     gallery: []
   },
   {
     title: "Chaos Destruction Sequence",
     subtitle: "Unreal Engine 5",
-    category: "unreal",
+    category: "technical-artist",
     thumb: "",
     video: "",
-    desc: "Secuencia de destrucción con física Chaos, cámara con Level Sequence y Field System actors.",
+    desc: "Destruction sequence using Chaos physics, a Level Sequence camera and Field System actors.",
     gallery: []
   },
   {
     title: "PCG Egg / Corruption System",
     subtitle: "Unreal Engine 5",
-    category: "unreal",
+    category: "technical-artist",
     thumb: "",
     video: "",
-    desc: "Sistema procedural de huevo/corrupción con Mesh Sampler, Copy Points y venas orgánicas basadas en splines.",
+    desc: "Procedural egg/corruption system using Mesh Sampler, Copy Points and spline-based organic veins.",
     gallery: []
   },
   {
     title: "PCG Roller Coaster",
     subtitle: "Unreal Engine 5",
-    category: "unreal",
+    category: "technical-artist",
     thumb: "",
     video: "",
-    desc: "Montaña rusa procedural con parámetros expuestos por Blueprint.",
+    desc: "Procedural roller coaster with Blueprint-exposed parameters.",
     gallery: []
   },
   {
-    title: "AI Boss Fight System (TFG)",
+    title: "AI Boss Fight System",
     subtitle: "Unity · GPT-4o-mini · Whisper",
-    category: "academic",
+    category: "programming",
     thumb: "",
     video: "",
-    desc: "Sistema de combate contra jefe dirigido por IA en Unity, con GPT-4o-mini, Whisper y un servidor Python por TCP.",
+    desc: "AI-driven boss fight system in Unity, using GPT-4o-mini, Whisper and a Python TCP server.",
     gallery: []
   },
   {
     title: "Gokui",
-    subtitle: "Prácticas · Arscade Studios",
-    category: "academic",
+    subtitle: "Internship · Arscade Studios",
+    category: "vfx-shader",
     thumb: "",
     video: "",
-    desc: "Desarrollo de VFX y shaders técnicos durante las prácticas como Technical VFX Artist.",
+    desc: "VFX and technical shader work developed during the Technical VFX Artist internship.",
     gallery: []
   },
 ];
@@ -136,6 +136,11 @@ function renderGrid(filter = 'all'){
   grid.innerHTML = '';
   const items = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.category === filter);
 
+  if (items.length === 0){
+    grid.innerHTML = `<p class="grid-empty">No projects in this category yet — coming soon.</p>`;
+    return;
+  }
+
   items.forEach((p, i) => {
     const card = document.createElement('div');
     card.className = 'card';
@@ -143,7 +148,7 @@ function renderGrid(filter = 'all'){
       <div class="card-thumb">
         ${p.thumb
           ? `<img src="${p.thumb}" alt="${p.title}">`
-          : `<span class="card-thumb-placeholder">Miniatura<br>${p.title}</span>`}
+          : `<span class="card-thumb-placeholder">Thumbnail<br>${p.title}</span>`}
       </div>
       <div class="card-body">
         <h3>${p.title}</h3>

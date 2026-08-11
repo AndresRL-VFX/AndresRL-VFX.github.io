@@ -140,18 +140,6 @@ img{ max-width:100%; display:block; }
 .btn-primary:hover{ opacity:.85; }
 .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
 
-.hero-coords{
-  position:absolute; bottom:2.5rem; left:0; right:0;
-  display:flex; justify-content:center; gap:.6rem;
-  font-family:var(--font-mono);
-  font-size:.7rem;
-  color:var(--muted);
-  letter-spacing:.08em;
-  flex-wrap:wrap;
-  padding:0 1rem;
-}
-.hero-coords span:nth-child(odd){ color:var(--accent); }
-
 /* ===== Filters ===== */
 .filters{ display:flex; gap:.7rem; justify-content:center; flex-wrap:wrap; margin-bottom:3rem; }
 .filter-btn{
@@ -175,6 +163,16 @@ img{ max-width:100%; display:block; }
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
   gap:1.6rem;
+}
+.grid-empty{
+  grid-column:1/-1;
+  text-align:center;
+  font-family:var(--font-mono);
+  font-size:.85rem;
+  color:var(--muted);
+  padding:3rem 0;
+  text-transform:uppercase;
+  letter-spacing:.04em;
 }
 .card{
   background:var(--surface);
