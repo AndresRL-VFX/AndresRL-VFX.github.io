@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrés — Technical VFX Artist</title>
+<meta name="description" content="Technical VFX Artist — Shaders, VFX y pipelines de render en tiempo real para videojuegos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a href="#intro" class="nav-logo">AR<span>/</span>VFX</a>
+  <nav class="nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#experience">Experiencia</a>
+    <a href="#about">Sobre mí</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="intro">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="eyebrow">// technical_vfx_artist.exe</p>
+    <h1>Andrés <span class="accent">Ruiz</span></h1>
+    <p class="hero-roles">
+      <span>Technical VFX Artist</span>
+      <span class="dot">·</span>
+      <span>Shader Development</span>
+      <span class="dot">·</span>
+      <span>Real-Time Rendering</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn btn-primary">Ver portfolio</a>
+      <a href="#contact" class="btn btn-ghost">Contactar</a>
+    </div>
+  </div>
+  <div class="hero-coords" aria-hidden="true">
+    <span>OBJECT</span><span>→</span><span>WORLD</span><span>→</span><span>VIEW</span><span>→</span><span>CLIP</span><span>→</span><span>NDC</span><span>→</span><span>SCREEN</span>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="section" id="portfolio">
+  <p class="eyebrow center">// 01_portfolio</p>
+  <h2 class="section-title center">Proyectos</h2>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="sunblind">Sunblind Games</button>
+    <button class="filter-btn" data-filter="shaders">Shaders Personales</button>
+    <button class="filter-btn" data-filter="unreal">Unreal Engine</button>
+    <button class="filter-btn" data-filter="academic">Académico</button>
+  </div>
+
+  <div class="grid" id="portfolioGrid">
+    <!-- Las cards se generan desde script.js (array PROJECTS) -->
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section alt" id="experience">
+  <p class="eyebrow center">// 02_experiencia</p>
+  <h2 class="section-title center">Trayectoria</h2>
+
+  <div class="exp-tabs">
+    <button class="exp-tab active" data-tab="professional">Profesional</button>
+    <button class="exp-tab" data-tab="education">Educación</button>
+  </div>
+
+  <div class="timeline" id="timeline-professional">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-body">
+        <span class="timeline-date">[FECHA INICIO] — Actualidad</span>
+        <h3>Technical VFX Artist · Sunblind Games</h3>
+        <p>Liderando la creación de VFX, shaders personalizados, iluminación y post-procesado para <em>Fighting Krazy Chickens</em>.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-body">
+        <span class="timeline-date">[FECHA INICIO] — [FECHA FIN]</span>
+        <h3>Technical VFX Artist (Prácticas) · Arscade Studios</h3>
+        <p>Desarrollo de VFX y shaders técnicos para el proyecto <em>Gokui</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline hidden" id="timeline-education">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-body">
+        <span class="timeline-date">2025 — 2026</span>
+        <h3>Máster en Technical VFX para AAA Games · Voxel School</h3>
+        <p>TFM sobre desarrollo de shaders en Unity — pipeline de render, espacios de coordenadas y sistemas de agua/partículas.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-body">
+        <span class="timeline-date">[FECHA]</span>
+        <h3>Grado en [TU GRADO] · UFV</h3>
+        <p>TFG: sistema de boss fight impulsado por IA en Unity (GPT-4o-mini, Whisper, servidor Python TCP).</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-body">
+        <span class="timeline-date">Oct 2026 —</span>
+        <h3>Nuevo Máster · [NOMBRE MÁSTER]</h3>
+        <p>Admitido tras superar el examen de acceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-photo">
+      <div class="photo-frame">
+        <span class="photo-placeholder">Tu foto aquí</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">// 03_sobre_mi</p>
+      <h2 class="section-title">Hola, soy Andrés</h2>
+      <p>Soy <strong>Technical VFX Artist</strong> con base en Madrid. Vengo del mundo de la programación de videojuegos y he virado hacia el arte técnico: shaders, VFX en tiempo real y sistemas procedurales.</p>
+      <p>Actualmente trabajo en <strong>Sunblind Games</strong> liderando la parte de VFX, shaders y post-procesado de <em>Fighting Krazy Chickens</em>, y acabo de terminar un máster en Technical VFX para AAA Games.</p>
+      <p>Me interesa especialmente todo lo que tiene que ver con el pipeline gráfico: espacios de coordenadas, shaders de agua, partículas e integración de efectos en el motor de juego.</p>
+
+      <div class="skills">
+        <h3>Software &amp; Motores</h3>
+        <div class="skill-tags">
+          <span>Unity</span><span>Unreal Engine 5</span><span>Shader Graph</span><span>HLSL</span>
+          <span>VFX Graph</span><span>Niagara</span><span>Substance Designer</span><span>C#</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section alt" id="contact">
+  <p class="eyebrow center">// 04_contacto</p>
+  <h2 class="section-title center">Hablemos</h2>
+  <p class="contact-lead">¿Buscas un Technical VFX Artist para tu equipo? Escríbeme.</p>
+  <div class="contact-links">
+    <a href="mailto:[TU_EMAIL]">[tu_email@ejemplo.com]</a>
+    <a href="https://www.linkedin.com/in/[TU-LINKEDIN]" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.artstation.com/[TU-USUARIO]" target="_blank" rel="noopener">ArtStation</a>
+    <a href="https://github.com/AndresRL-VFX" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p class="footer-note">© 2026 Andrés — Technical VFX Artist</p>
+</section>
+
+<!-- ============ LIGHTBOX MODAL ============ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+    <div class="lightbox-video" id="lightboxVideo"></div>
+    <div class="lightbox-info">
+      <span class="lightbox-tag" id="lightboxTag"></span>
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+    </div>
+    <div class="lightbox-gallery" id="lightboxGallery"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
