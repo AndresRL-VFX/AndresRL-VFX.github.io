@@ -209,6 +209,116 @@ document.getElementById('lightboxClose').addEventListener('click', closeLightbox
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
+/* ========== HERO PARTICLES (naranja, glow, ascendiendo) ========== */
+(function initHeroParticles(){
+  const canvas = document.getElementById('heroParticles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('intro');
+
+  let particles = [];
+  let w, h, dpr;
+
+  const COLORS = ['#ff7a3d', '#ff9a5c', '#ffb27a', '#ff5e1a'];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = hero.clientWidth;
+    h = hero.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function makeParticle(startAtBottom){
+    const size = Math.random() * 2.2 + 0.8;
+    return {
+      x: Math.random() * w,
+      y: startAtBottom ? h + Math.random() * 60 : Math.random() * h,
+      size,
+      baseSize: size,
+      speed: Math.random() * 0.5 + 0.15,
+      drift: (Math.random() - 0.5) * 0.35,
+      driftPhase: Math.random() * Math.PI * 2,
+      driftSpeed: Math.random() * 0.015 + 0.005,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: Math.random() * 0.5 + 0.35,
+      twinkleSpeed: Math.random() * 0.02 + 0.008,
+      twinklePhase: Math.random() * Math.PI * 2
+    };
+  }
+
+  function initParticles(){
+    const density = Math.max(35, Math.min(90, Math.floor((w * h) / 16000)));
+    particles = Array.from({ length: density }, () => makeParticle(false));
+  }
+
+  function step(){
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+
+    particles.forEach(p => {
+      p.y -= p.speed;
+      p.driftPhase += p.driftSpeed;
+      p.x += Math.sin(p.driftPhase) * p.drift;
+      p.twinklePhase += p.twinkleSpeed;
+
+      const twinkle = (Math.sin(p.twinklePhase) + 1) / 2;
+      const alpha = p.alpha * (0.6 + twinkle * 0.4);
+      const size = p.baseSize * (0.85 + twinkle * 0.3);
+
+      if (p.y < -20 || p.x < -20 || p.x > w + 20){
+        Object.assign(p, makeParticle(true));
+        return;
+      }
+
+      const glowSize = size * 6;
+      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowSize);
+      gradient.addColorStop(0, hexToRgba(p.color, alpha * 0.9));
+      gradient.addColorStop(0.4, hexToRgba(p.color, alpha * 0.25));
+      gradient.addColorStop(1, hexToRgba(p.color, 0));
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = hexToRgba(p.color, alpha);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    ctx.globalCompositeOperation = 'source-over';
+    if (!reduceMotion) requestAnimationFrame(step);
+  }
+
+  function hexToRgba(hex, alpha){
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
+  resize();
+  initParticles();
+
+  if (reduceMotion){
+    step(); // dibuja un frame estático, sin animar
+  } else {
+    requestAnimationFrame(step);
+  }
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => { resize(); initParticles(); }, 150);
+  });
+})();
+
 /* ========== MOBILE NAV ========== */
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.querySelector('.nav-links');
