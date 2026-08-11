@@ -14,7 +14,7 @@ const PROJECTS = [
     title: "Flamethrower VFX",
     subtitle: "VFX Graph · Fighting Krazy Chickens",
     category: "vfx-shader",
-    thumb: "",
+    thumb: "img/Werewolf.png",
     video: "",
     desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
     gallery: []
