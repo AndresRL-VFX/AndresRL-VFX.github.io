@@ -101,7 +101,23 @@ img{ max-width:100%; display:block; }
   letter-spacing:.02em;
 }
 .nav-logo span{ color:var(--accent); }
-.nav-links{ display:flex; gap:2.2rem; }
+.nav-links{ display:flex; gap:2.2rem; position:relative; }
+.nav-indicator{
+  position:absolute;
+  top:0; left:0;
+  height:100%;
+  border-radius:2px;
+  border:1px solid var(--accent);
+  background:rgba(255,122,61,.08);
+  box-shadow:0 0 12px rgba(255,122,61,.25);
+  pointer-events:none;
+  opacity:0;
+  transition:
+    transform .5s cubic-bezier(.65,0,.35,1),
+    width .5s cubic-bezier(.65,0,.35,1),
+    opacity .3s ease;
+}
+.nav-indicator.visible{ opacity:1; }
 .nav-links a{
   font-family:var(--font-mono);
   font-size:.82rem;
@@ -111,33 +127,15 @@ img{ max-width:100%; display:block; }
   padding:.4rem .8rem;
   border-radius:2px;
   position:relative;
+  z-index:1;
   transition:
     color .3s ease,
     transform .35s cubic-bezier(.34,1.56,.64,1);
-}
-.nav-links a::before{
-  content:'';
-  position:absolute;
-  inset:-2px;
-  border-radius:4px;
-  padding:2px;
-  background:conic-gradient(from var(--card-angle), transparent 60%, var(--accent) 80%, transparent 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  opacity:0;
-  transition:opacity .25s ease-out;
 }
 .nav-links a:hover{ color:var(--text); }
 .nav-links a.active{
   color:var(--accent);
   font-weight:600;
-  transform:scale(1);
-}
-.nav-links a.active::before{
-  opacity:1;
-  animation:card-spin 2.5s linear infinite;
-  transition:opacity .4s ease-in;
 }
 .nav-links a:active{ transform:scale(.9); transition-duration:.08s; }
 .nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; }
@@ -441,7 +439,7 @@ img{ max-width:100%; display:block; }
 .photo-frame img{ width:100%; height:100%; object-fit:cover; object-position:center; }
 .photo-placeholder{ font-family:var(--font-mono); font-size:.75rem; color:var(--muted); text-transform:uppercase; }
 
-.about-text p{ color:#c9c9cf; margin-bottom:1rem; max-width:60ch; }
+.about-text p:not(.section-label){ color:#c9c9cf; margin-bottom:1rem; max-width:60ch; }
 .skills{ margin-top:2rem; }
 .skills h3{ font-family:var(--font-mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:1rem; }
 .skill-tags{ display:flex; flex-wrap:wrap; gap:.6rem; }
