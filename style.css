@@ -239,7 +239,7 @@ img{ max-width:100%; display:block; }
 }
 .card{
   background:var(--surface);
-  border:1px solid var(--border);
+  border:2px solid var(--border);
   border-radius:6px;
   cursor:pointer;
   position:relative;
@@ -250,15 +250,16 @@ img{ max-width:100%; display:block; }
 .card::before{
   content:'';
   position:absolute;
-  inset:-3px;
-  border-radius:9px;
-  padding:3px;
-  background:conic-gradient(from var(--card-angle), transparent 87%, rgba(255,255,255,.55) 93%, transparent 100%);
+  inset:-4px;
+  border-radius:10px;
+  padding:4px;
+  background:conic-gradient(from var(--card-angle), transparent 82%, rgba(255,160,80,.9) 90%, rgba(255,122,61,.6) 94%, transparent 100%);
   -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   opacity:0;
   transition:opacity .4s ease;
+  filter:blur(1.5px);
 }
 .card:hover{
   transform:translateY(-5px);
