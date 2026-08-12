@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas class="global-particles" id="globalParticles" aria-hidden="true"></canvas>
 
 <!-- ============ NAV ============ -->
 <header class="nav">
@@ -26,6 +25,10 @@
     <span></span><span></span><span></span>
   </button>
 </header>
+
+<!-- ============ PARTICLES ZONE (hero + portfolio) ============ -->
+<div class="particles-zone" id="particlesZone">
+<canvas class="particles-canvas" id="globalParticles" aria-hidden="true"></canvas>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="intro">
@@ -65,6 +68,7 @@
     <!-- Cards are generated from script.js (PROJECTS array) -->
   </div>
 </section>
+</div><!-- end particles-zone -->
 
 <!-- ============ EXPERIENCE ============ -->
 <section class="section alt" id="experience">
