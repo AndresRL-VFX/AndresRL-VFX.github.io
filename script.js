@@ -114,7 +114,7 @@ function renderGrid(filter = 'all'){
         <p>${p.subtitle}</p>
       </div>
     `;
-    card.addEventListener('click', () => openLightbox(p));
+    card.addEventListener('click', () => { playPop(); openLightbox(p); });
     grid.appendChild(card);
   });
 }
@@ -215,6 +215,7 @@ function openLightbox(p){
         const i = Number(el.dataset.index);
         renderMediaItem(currentMedia[i], p.title);
         setActiveThumb(i);
+        playPop();
       });
     });
   } else {
