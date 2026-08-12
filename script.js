@@ -42,11 +42,14 @@ const PROJECTS = [
   <a href="https://splice.com/sounds" target="_blank" rel="noopener">Splice Sounds</a>.</p>
 `,
   media: [
-    { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence" },
-    { type: "image",  src: "img/lava-claw-breakdown.jpg",               caption: "Niagara module stack: Spawn Burst, Curl Noise Force, Scale Color over life." },
-    { type: "image",  src: "img/lava-claw-material.jpg",                caption: "Dynamic material instance: panning lava texture with UV distortion and Fresnel rim." },
-    { type: "video",  src: "https://www.youtube.com/embed/VIDEO_ID_2",  caption: "Side-by-side comparison: early prototype vs final polished version." },
-    { type: "image",  src: "img/lava-claw-mesh.jpg",                    caption: "Slash mesh modeled in Maya — low-poly ribbon with custom UVs for the flow map." }
+    { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence." },
+    { type: "image",  src: "img/lava-claw-breakdown.jpg",               caption: "Screenshoots" },
+    { type: "image",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
+    { type: "image",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." }
+    { type: "image",  src: "https://player.vimeo.com/video/1203296929",  caption: "Bite." }
+    { type: "image",  src: "https://player.vimeo.com/video/1203296946",  caption: "Shockwave Floor" }
+    { type: "image",  src: "https://player.vimeo.com/video/1203296956",  caption: "Sphere Explosion." }
   ]
 },
   {
