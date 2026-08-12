@@ -183,7 +183,7 @@ img{ max-width:100%; display:block; }
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   opacity:0;
-  transition:opacity .4s ease;
+  transition:opacity .05s;
 }
 .filter-btn:hover{
   border-color:var(--accent);
@@ -204,6 +204,7 @@ img{ max-width:100%; display:block; }
 .filter-btn.active::before{
   opacity:1;
   animation:card-spin 2.5s linear infinite;
+  transition:opacity .4s ease;
 }
 @keyframes card-spin{ to{ --card-angle:360deg; } }
 
@@ -309,7 +310,7 @@ img{ max-width:100%; display:block; }
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   opacity:0;
-  transition:opacity .4s ease;
+  transition:opacity .05s;
 }
 .exp-tab:hover{
   border-color:var(--accent);
@@ -330,6 +331,7 @@ img{ max-width:100%; display:block; }
 .exp-tab.active::before{
   opacity:1;
   animation:card-spin 2.5s linear infinite;
+  transition:opacity .4s ease;
 }
 
 .timeline{ max-width:760px; margin:0 auto; position:relative; padding-left:2rem; }
@@ -341,7 +343,13 @@ img{ max-width:100%; display:block; }
 .timeline-item:last-child{ padding-bottom:0; }
 .timeline-dot{
   position:absolute; left:-2rem; top:5px; width:11px; height:11px; border-radius:50%;
-  background:var(--accent); box-shadow:0 0 0 4px var(--accent-dim);
+  background:var(--accent);
+  box-shadow:0 0 0 4px var(--accent-dim), 0 0 12px rgba(255,122,61,.35);
+  animation:dot-pulse 3s ease-in-out infinite;
+}
+@keyframes dot-pulse{
+  0%, 100%{ box-shadow:0 0 0 4px var(--accent-dim), 0 0 10px rgba(255,122,61,.3); }
+  50%{ box-shadow:0 0 0 5px var(--accent-dim), 0 0 20px rgba(255,122,61,.5); }
 }
 .timeline-date{ font-family:var(--font-mono); font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
 .timeline-body h3{ font-family:var(--font-display); font-size:1.1rem; margin:.3rem 0 .4rem; }
