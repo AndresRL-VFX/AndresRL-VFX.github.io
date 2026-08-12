@@ -72,8 +72,8 @@ const PROJECTS = [
   <a href="https://www.fab.com/listings/b3d214c2-50fa-4a0e-a780-bee56c1baf8f" target="_blank" rel="noopener">Fab.com</a>.</p>
 `,
   media: [
-    { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence." },
-    { type: "image",  src: "img/4VFX.webp", caption: "Screenshoots" },
+    { type: "video",  src: "https://player.vimeo.com/video/1206630588",  caption: "Tool example" },
+    { type: "image",  src: "img/4VFX.webp", caption: "Render" },
     { type: "video",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
     { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
     { type: "video",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." },
