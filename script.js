@@ -126,41 +126,19 @@ const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let _audioCtx;
 function _ctx(){ if (!_audioCtx) _audioCtx = new AudioCtx(); return _audioCtx; }
 
-/* Click — rich layered pop */
+/* Click — simple pop */
 function playPop(){
   const ctx = _ctx();
   const t = ctx.currentTime;
-
-  const osc1 = ctx.createOscillator();
-  const g1 = ctx.createGain();
-  osc1.type = 'sine';
-  osc1.frequency.setValueAtTime(1100, t);
-  osc1.frequency.exponentialRampToValueAtTime(300, t + 0.1);
-  g1.gain.setValueAtTime(0.13, t);
-  g1.gain.exponentialRampToValueAtTime(0.001, t + 0.14);
-  osc1.connect(g1).connect(ctx.destination);
-  osc1.start(t); osc1.stop(t + 0.14);
-
-  const osc2 = ctx.createOscillator();
-  const g2 = ctx.createGain();
-  osc2.type = 'sine';
-  osc2.frequency.setValueAtTime(2200, t);
-  osc2.frequency.exponentialRampToValueAtTime(600, t + 0.08);
-  g2.gain.setValueAtTime(0.06, t);
-  g2.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
-  osc2.connect(g2).connect(ctx.destination);
-  osc2.start(t); osc2.stop(t + 0.1);
-
-  const buf = ctx.createBuffer(1, ctx.sampleRate * 0.012, ctx.sampleRate);
-  const data = buf.getChannelData(0);
-  for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
-  const noise = ctx.createBufferSource();
-  const gn = ctx.createGain();
-  noise.buffer = buf;
-  gn.gain.setValueAtTime(0.07, t);
-  gn.gain.exponentialRampToValueAtTime(0.001, t + 0.015);
-  noise.connect(gn).connect(ctx.destination);
-  noise.start(t);
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(900, t);
+  osc.frequency.exponentialRampToValueAtTime(400, t + 0.08);
+  gain.gain.setValueAtTime(0.15, t);
+  gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(t); osc.stop(t + 0.12);
 }
 
 /* Hover — soft high tick */
@@ -178,7 +156,7 @@ function playHover(){
   osc.start(t); osc.stop(t + 0.06);
 }
 
-/* Attach hover sound to all interactive elements */
+/* Hover sound on all outside-lightbox interactive elements */
 function addHoverSound(selector){
   document.querySelectorAll(selector).forEach(el => {
     el.addEventListener('mouseenter', playHover);
@@ -189,6 +167,11 @@ addHoverSound('.exp-tab');
 addHoverSound('.btn');
 addHoverSound('.nav-links a');
 addHoverSound('.contact-links a');
+
+/* Click sound on nav links and contact links */
+document.querySelectorAll('.nav-links a, .contact-links a, .btn').forEach(el => {
+  el.addEventListener('click', playPop);
+});
 
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -262,7 +245,6 @@ function openLightbox(p){
         setActiveThumb(i);
         playPop();
       });
-      el.addEventListener('mouseenter', playHover);
     });
   } else {
     lbThumbs.style.display = 'none';
