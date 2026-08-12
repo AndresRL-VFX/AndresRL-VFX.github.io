@@ -320,11 +320,12 @@ document.getElementById('lightboxClose').addEventListener('click', closeLightbox
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-/* ========== GLOBAL PARTICLES (naranja, glow, ascendiendo, full page) ========== */
+/* ========== GLOBAL PARTICLES (hero + portfolio zone) ========== */
 (function initGlobalParticles(){
   const canvas = document.getElementById('globalParticles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  const zone = document.getElementById('particlesZone');
 
   let particles = [];
   let w, h, dpr;
@@ -334,8 +335,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
 
   function resize(){
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = window.innerWidth;
-    h = window.innerHeight;
+    w = zone.clientWidth;
+    h = zone.clientHeight;
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
