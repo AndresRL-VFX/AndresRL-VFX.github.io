@@ -15,6 +15,12 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
+@property --card-angle{
+  syntax:'<angle>';
+  initial-value:0deg;
+  inherits:false;
+}
+
 html{ scroll-behavior:smooth; }
 
 body{
@@ -178,17 +184,35 @@ img{ max-width:100%; display:block; }
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:6px;
-  overflow:hidden;
   cursor:pointer;
+  position:relative;
   transition:transform .25s, border-color .25s;
 }
-.card:hover{ transform:translateY(-4px); border-color:var(--accent); }
+.card::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:8px;
+  background:conic-gradient(from var(--card-angle), transparent 60%, var(--accent) 80%, transparent 100%);
+  z-index:-1;
+  opacity:0;
+  transition:opacity .4s;
+  filter:blur(5px);
+}
+.card:hover{ transform:translateY(-4px); border-color:transparent; }
+.card:hover::before{
+  opacity:1;
+  animation:card-spin 2.5s linear infinite;
+}
+@keyframes card-spin{ to{ --card-angle:360deg; } }
+
 .card-thumb{
   aspect-ratio:16/10;
   background:linear-gradient(135deg, #1c1c20, #101012);
   display:flex; align-items:center; justify-content:center;
   position:relative;
   overflow:hidden;
+  border-radius:5px 5px 0 0;
 }
 .card-thumb img{ width:100%; height:100%; object-fit:contain; object-position:center; background:var(--surface); }
 .card-thumb-placeholder{
