@@ -85,15 +85,30 @@ const PROJECTS = [
     { type: "image",  src: "img/PCG10.jpg",  caption: "Comparison of the foliage density and direction." },
     { type: "image",  src: "img/PCG11.jpg",  caption: "Comparison of the foliage density and direction." }
   ]
-},
-   {
+{
   title: "ECO OCEAN",
-  subtitle: "Unity WebGL · Videogame",
+  subtitle: "Serious Games · Unity WebGL",
   category: "videogames",
   thumb: "img/eco-ocean-thumb.jpg",
-  desc: `<p>Tu descripción del juego aquí.</p>`,
+  desc: `
+    <p><strong>Eco Ocean</strong> is a serious game where you become an environmental
+    hero tasked with protecting the oceans and marine life by collecting trash
+    before it falls into the sea.</p>
+
+    <p>Your mission is to prevent waste and debris from polluting the ocean —
+    use your collector to catch it in time, but be careful not to touch any
+    animals. Difficulty increases over time as more trash appears and sea
+    creatures become harder to avoid.</p>
+
+    <p>This project was featured in the Spanish newspaper <strong>20 Minutos</strong>:
+    <a href="https://www.20minutos.es/noticia/5164805/0/ciencia-ecologia-jovenes-ecologistas-se-inspiran-darwin-para-conservar-planeta/" target="_blank" rel="noopener">Read the article</a>.</p>
+  `,
   media: [
-    { type: "video", src: "games/eco-ocean/index.html", caption: "Click on the game to start playing." }
+    { type: "video", src: "games/eco-ocean/index.html",  caption: "Click on the game to start playing." },
+    { type: "image", src: "img/eco1.jpg",                 caption: "Main menu and game start screen." },
+    { type: "image", src: "img/eco2.jpg",                 caption: "Gameplay — collecting trash before it reaches the water." },
+    { type: "image", src: "img/eco3.jpg",                 caption: "Marine life that the player must avoid touching." },
+    { type: "image", src: "img/eco4.jpg",                 caption: "Higher difficulty stages with increased trash and obstacles." }
   ]
 },
 ];
