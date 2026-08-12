@@ -18,14 +18,15 @@
 ========================================================= */
 const PROJECTS = [
   {
-    title: "Flamethrower VFX",
-    subtitle: "VFX Graph · Fighting Krazy Chickens",
+    title: "WereWolf Triple Combo VFX",
+    subtitle: "VFX Unreal Engine",
     category: "vfx-shader",
     thumb: "img/Werewolf.png",
-    desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
-    media: [ { type: "image", src: "img/Werewolf.pn", caption: "Aquí explicas qué muestra esta foto" },
+    desc: "· This VFX was developed in Unreal Engine 5, synergistically integrating the Niagara particle system with static meshes made it in Maya and dynamic materials · The visual foundation is built upon a Shader Manipulation workflow, implementing UV Distortion techniques and Panner Nodes over procedural noise textures to generate an organic and erratic aesthetic. · For environmental response, the Chaos Physics Engine was utilized, applying a Fracture Mode and Geometry Collections workflow.  Animation Asset: (https://fab.com/s/6ec499f283bf)Audio: The sound effects were sourced from the Splice Sounds library (https://splice.com/sounds).
+       ",
+    media: [ { type: "image", src: "img/Werewolf.png", caption: "Aquí explicas qué muestra esta foto" },
   { type: "video", src: "https://www.youtube.com/embed/TU_ID", caption: "Aquí explicas qué se ve en este vídeo" },
-  { type: "image", src: "img/Werewolf.pn", caption: "Aquí explicas qué muestra esta segunda foto" }]
+  { type: "image", src: "img/Werewolf.png", caption: "Aquí explicas qué muestra esta segunda foto" }]
   },
   {
     title: "Holographic Card Shader",
