@@ -115,35 +115,80 @@ function renderGrid(filter = 'all'){
       </div>
     `;
     card.addEventListener('click', () => { playPop(); openLightbox(p); });
+    card.addEventListener('mouseenter', playHover);
     grid.appendChild(card);
   });
 }
 renderGrid();
 
-/* ========== UI SOUND (synthetic pop) ========== */
+/* ========== UI SOUNDS ========== */
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let _audioCtx;
+function _ctx(){ if (!_audioCtx) _audioCtx = new AudioCtx(); return _audioCtx; }
 
+/* Click — rich layered pop */
 function playPop(){
-  if (!_audioCtx) _audioCtx = new AudioCtx();
-  const ctx = _audioCtx;
+  const ctx = _ctx();
+  const t = ctx.currentTime;
 
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
+  const osc1 = ctx.createOscillator();
+  const g1 = ctx.createGain();
+  osc1.type = 'sine';
+  osc1.frequency.setValueAtTime(1100, t);
+  osc1.frequency.exponentialRampToValueAtTime(300, t + 0.1);
+  g1.gain.setValueAtTime(0.13, t);
+  g1.gain.exponentialRampToValueAtTime(0.001, t + 0.14);
+  osc1.connect(g1).connect(ctx.destination);
+  osc1.start(t); osc1.stop(t + 0.14);
 
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(900, ctx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
+  const osc2 = ctx.createOscillator();
+  const g2 = ctx.createGain();
+  osc2.type = 'sine';
+  osc2.frequency.setValueAtTime(2200, t);
+  osc2.frequency.exponentialRampToValueAtTime(600, t + 0.08);
+  g2.gain.setValueAtTime(0.06, t);
+  g2.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+  osc2.connect(g2).connect(ctx.destination);
+  osc2.start(t); osc2.stop(t + 0.1);
 
-  gain.gain.setValueAtTime(0.15, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
-
-  osc.connect(gain);
-  gain.connect(ctx.destination);
-
-  osc.start(ctx.currentTime);
-  osc.stop(ctx.currentTime + 0.12);
+  const buf = ctx.createBuffer(1, ctx.sampleRate * 0.012, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+  const noise = ctx.createBufferSource();
+  const gn = ctx.createGain();
+  noise.buffer = buf;
+  gn.gain.setValueAtTime(0.07, t);
+  gn.gain.exponentialRampToValueAtTime(0.001, t + 0.015);
+  noise.connect(gn).connect(ctx.destination);
+  noise.start(t);
 }
+
+/* Hover — soft high tick */
+function playHover(){
+  const ctx = _ctx();
+  const t = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const g = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(1800, t);
+  osc.frequency.exponentialRampToValueAtTime(1200, t + 0.04);
+  g.gain.setValueAtTime(0.04, t);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.06);
+  osc.connect(g).connect(ctx.destination);
+  osc.start(t); osc.stop(t + 0.06);
+}
+
+/* Attach hover sound to all interactive elements */
+function addHoverSound(selector){
+  document.querySelectorAll(selector).forEach(el => {
+    el.addEventListener('mouseenter', playHover);
+  });
+}
+addHoverSound('.filter-btn');
+addHoverSound('.exp-tab');
+addHoverSound('.btn');
+addHoverSound('.nav-links a');
+addHoverSound('.contact-links a');
 
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -217,6 +262,7 @@ function openLightbox(p){
         setActiveThumb(i);
         playPop();
       });
+      el.addEventListener('mouseenter', playHover);
     });
   } else {
     lbThumbs.style.display = 'none';
