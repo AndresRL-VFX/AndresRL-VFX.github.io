@@ -52,102 +52,36 @@ const PROJECTS = [
     { type: "video",  src: "https://player.vimeo.com/video/1203296956",  caption: "Sphere Explosion." }
   ]
 },
-  {
-    title: "Holographic Card Shader",
-    subtitle: "Shader Graph · Fighting Krazy Chickens",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "Holographic rainbow card shader driven by emission and a LUT, using the Modulo node to build the pattern.",
-    media: []
-  },
-  {
-    title: "Warning Decal Shader",
-    subtitle: "Shader Graph · Fighting Krazy Chickens",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "Ground warning decal using BlendOp Max and ZTest LEqual, driven by a singleton manager for overlap handling.",
-    media: []
-  },
-  {
-    title: "Grass Shader",
-    subtitle: "GPU Instancing · Fighting Krazy Chickens",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "GPU-instanced grass with player interaction bending and cylindrical billboarding.",
-    media: []
-  },
-  {
-    title: "Rim Light Edge Detection",
-    subtitle: "Renderer Feature · Fighting Krazy Chickens",
-    category: "technical-artist",
-    thumb: "",
-    desc: "Screen-space rim light Renderer Feature using Roberts Cross edge detection and stencil buffer layer filtering.",
-    media: []
-  },
-  {
-    title: "Master Particle Uber-Shader",
-    subtitle: "URP · Fighting Krazy Chickens",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "Master particle shader for URP, built as a reusable base for every effect in the game.",
-    media: []
-  },
-  {
-    title: "Stylized Water & Waterfall",
-    subtitle: "Unity 6 URP · Personal Project",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "Water and waterfall shader with world-space depth, HSV color lerp, screen-space refraction, intersection foam and Voronoi flow glare.",
-    media: []
-  },
-  {
-    title: "Lava Claw Attack VFX",
-    subtitle: "Niagara · Unreal Engine 5",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "Lava/fire claw attack VFX built in Niagara, submitted to The Rookies.",
-    media: []
-  },
-  {
-    title: "Chaos Destruction Sequence",
-    subtitle: "Unreal Engine 5",
-    category: "technical-artist",
-    thumb: "",
-    desc: "Destruction sequence using Chaos physics, a Level Sequence camera and Field System actors.",
-    media: []
-  },
-  {
-    title: "PCG Egg / Corruption System",
-    subtitle: "Unreal Engine 5",
-    category: "technical-artist",
-    thumb: "",
-    desc: "Procedural egg/corruption system using Mesh Sampler, Copy Points and spline-based organic veins.",
-    media: []
-  },
-  {
-    title: "PCG Roller Coaster",
-    subtitle: "Unreal Engine 5",
-    category: "technical-artist",
-    thumb: "",
-    desc: "Procedural roller coaster with Blueprint-exposed parameters.",
-    media: []
-  },
-  {
-    title: "AI Boss Fight System",
-    subtitle: "Unity · GPT-4o-mini · Whisper",
-    category: "programming",
-    thumb: "",
-    desc: "AI-driven boss fight system in Unity, using GPT-4o-mini, Whisper and a Python TCP server.",
-    media: []
-  },
-  {
-    title: "Gokui",
-    subtitle: "Internship · Arscade Studios",
-    category: "vfx-shader",
-    thumb: "",
-    desc: "VFX and technical shader work developed during the Technical VFX Artist internship.",
-    media: []
-  },
+ {
+  title: "Roller Coaster PCG",
+  subtitle: "PCG · Unreal Engine 5",
+  category: "technical-artist",
+  thumb: "img/RollerCoaster.png",
+ desc: `
+  <p>Creation of a <strong>procedural generation system</strong> using the
+  PCG framework in <strong>Unreal Engine 5</strong>. The entire roller coaster
+  structure is generated along a spline, allowing full control over the layout
+  and shape of the track through simple curve editing.</p>
+
+  <p>All key parameters — such as rail spacing, support density, segment count
+  and mesh variations — are exposed and configurable directly from the
+  Blueprint's Details panel, making the system fully art-directable without
+  touching a single node.</p>
+
+  <p>Asset used:
+  <a href="https://www.fab.com/listings/b3d214c2-50fa-4a0e-a780-bee56c1baf8f" target="_blank" rel="noopener">Fab.com</a>.</p>
+`,
+  media: [
+    { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence." },
+    { type: "image",  src: "img/4VFX.webp", caption: "Screenshoots" },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296929",  caption: "Bite." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296946",  caption: "Shockwave Floor" },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296956",  caption: "Sphere Explosion." }
+  ]
+},
 ];
 
 /* ========== RENDER GRID ========== */
