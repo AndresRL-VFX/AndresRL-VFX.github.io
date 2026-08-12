@@ -21,19 +21,35 @@
 ========================================================= */
 const PROJECTS = [
   {
-    title: "Flamethrower VFX",
-    subtitle: "VFX Graph · Fighting Krazy Chickens",
-    category: "vfx-shader",
-    thumb: "",
-    desc: `<p>This VFX was developed in Unreal Engine 5, integrating the Niagara particle system with static meshes and dynamic materials.</p>
-       <p>The effect combines world-space simulation with custom material functions for color variation.</p>
-       <p>Submitted to <strong>The Rookies</strong> 2026.</p>
-    media:[
-    { type: "image", src: "img/foto1.jpg", caption: "Aquí explicas qué muestra esta foto" },
-    { type: "video", src: "https://www.youtube.com/embed/TU_ID", caption: "Aquí explicas qué se ve en este vídeo" },
-    { type: "image", src: "img/foto2.jpg", caption: "Aquí explicas qué muestra esta segunda foto" }
-     ]
-  },
+  title: "Lava Claw Attack VFX",
+  subtitle: "Niagara · Unreal Engine 5",
+  category: "vfx-shader",
+  thumb: "img/lava-claw-thumb.jpg",
+  desc: `
+    <p>This VFX was developed in <strong>Unreal Engine 5</strong>, integrating the
+    Niagara particle system with static meshes modeled in Maya and dynamic materials
+    driven by Material Parameter Collections.</p>
+
+    <p>The effect is split into three layers:</p>
+    <ul>
+      <li><strong>Core slash</strong> — mesh-based ribbon with panning emissive texture and UV distortion.</li>
+      <li><strong>Particle trail</strong> — GPU sprites using curl noise for organic movement.</li>
+      <li><strong>Impact burst</strong> — radial chunks with Chaos-based micro-destruction on hit.</li>
+    </ul>
+
+    <p>Color grading is handled via a shared LUT and a custom post-process volume
+    that activates on hit, adding a brief chromatic-aberration punch.</p>
+
+    <p>Submitted to <strong>The Rookies 2026</strong>.</p>
+  `,
+  media: [
+    { type: "video",  src: "https://www.youtube.com/embed/VIDEO_ID_1",  caption: "Full attack sequence — idle → wind-up → slash → impact → cooldown." },
+    { type: "image",  src: "img/lava-claw-breakdown.jpg",               caption: "Niagara module stack: Spawn Burst, Curl Noise Force, Scale Color over life." },
+    { type: "image",  src: "img/lava-claw-material.jpg",                caption: "Dynamic material instance: panning lava texture with UV distortion and Fresnel rim." },
+    { type: "video",  src: "https://www.youtube.com/embed/VIDEO_ID_2",  caption: "Side-by-side comparison: early prototype vs final polished version." },
+    { type: "image",  src: "img/lava-claw-mesh.jpg",                    caption: "Slash mesh modeled in Maya — low-poly ribbon with custom UVs for the flow map." }
+  ]
+},
   {
     title: "Holographic Card Shader",
     subtitle: "Shader Graph · Fighting Krazy Chickens",
