@@ -87,7 +87,7 @@ const PROJECTS = [
   ]
 },      
 {
-  title: "ECO OCEAN",
+  title: "Eco Ocean",
   subtitle: "Serious Games · Unity WebGL",
   category: "videogames",
   thumb: "img/eco-ocean-thumb.png",
