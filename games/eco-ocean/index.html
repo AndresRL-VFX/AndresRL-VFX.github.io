@@ -6,6 +6,13 @@
     <title>Unity WebGL Player | ECO</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      * { margin:0; padding:0; }
+      html, body { width:100%; height:100%; overflow:hidden; background:#000; }
+      #unity-container { width:100%; height:100%; position:relative; }
+      #unity-canvas { width:100% !important; height:100% !important; }
+      #unity-footer { position:absolute; bottom:0; left:0; right:0; }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -89,10 +96,9 @@
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        // Desktop: fill the iframe
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
       }
 
       loadingBar.style.display = "block";
