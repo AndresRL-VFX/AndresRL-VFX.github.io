@@ -43,7 +43,7 @@ const PROJECTS = [
 `,
   media: [
     { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence." },
-    { type: "image",  src: "img/4VFX.Webp", caption: "Screenshoots" },
+    { type: "image",  src: "img/4VFX.webp", caption: "Screenshoots" },
     { type: "video",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
     { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
     { type: "video",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." },
