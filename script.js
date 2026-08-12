@@ -21,27 +21,26 @@
 ========================================================= */
 const PROJECTS = [
   {
-  title: "Lava Claw Attack VFX",
+  title: "Werewolf Triple Combo VFX",
   subtitle: "Niagara · Unreal Engine 5",
   category: "vfx-shader",
-  thumb: "img/lava-claw-thumb.jpg",
-  desc: `
-    <p>This VFX was developed in <strong>Unreal Engine 5</strong>, integrating the
-    Niagara particle system with static meshes modeled in Maya and dynamic materials
-    driven by Material Parameter Collections.</p>
+  thumb: "img/Werewolf.png",
+ desc: `
+  <p>This VFX was developed in <strong>Unreal Engine 5</strong>, integrating the
+  Niagara particle system with static meshes modeled in Maya and dynamic materials.</p>
 
-    <p>The effect is split into three layers:</p>
-    <ul>
-      <li><strong>Core slash</strong> — mesh-based ribbon with panning emissive texture and UV distortion.</li>
-      <li><strong>Particle trail</strong> — GPU sprites using curl noise for organic movement.</li>
-      <li><strong>Impact burst</strong> — radial chunks with Chaos-based micro-destruction on hit.</li>
-    </ul>
+  <p>The visual foundation is built upon a <strong>Shader Manipulation</strong> workflow,
+  implementing UV Distortion techniques and Panner Nodes over procedural noise textures
+  to generate an organic and erratic aesthetic.</p>
 
-    <p>Color grading is handled via a shared LUT and a custom post-process volume
-    that activates on hit, adding a brief chromatic-aberration punch.</p>
+  <p>For environmental response, the <strong>Chaos Physics Engine</strong> was utilized,
+  applying a Fracture Mode and Geometry Collections workflow.</p>
 
-    <p>Submitted to <strong>The Rookies 2026</strong>.</p>
-  `,
+  <p>Animation Asset:
+  <a href="https://fab.com/s/6ec499f283bf" target="_blank" rel="noopener">Fab.com</a><br>
+  Audio: Sound effects sourced from
+  <a href="https://splice.com/sounds" target="_blank" rel="noopener">Splice Sounds</a>.</p>
+`,
   media: [
     { type: "video",  src: "https://www.youtube.com/embed/VIDEO_ID_1",  caption: "Full attack sequence — idle → wind-up → slash → impact → cooldown." },
     { type: "image",  src: "img/lava-claw-breakdown.jpg",               caption: "Niagara module stack: Spawn Burst, Curl Noise Force, Scale Color over life." },
