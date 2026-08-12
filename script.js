@@ -43,7 +43,7 @@ const PROJECTS = [
 `,
   media: [
     { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence." },
-    { type: "image",  src: "img/lava-claw-breakdown.jpg",               caption: "Screenshoots" },
+    { type: "image",  src: "img/lava-claw-breakdown.jpg", caption: "Screenshoots" },
     { type: "image",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
     { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
     { type: "image",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." }
