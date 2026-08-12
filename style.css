@@ -57,33 +57,38 @@ img{ max-width:100%; display:block; }
 
 .accent{ color:var(--accent); }
 
+@property --sweep{
+  syntax:'<percentage>';
+  initial-value:0%;
+  inherits:false;
+}
+
 .section-label{
-  font-family:var(--font-mono);
-  font-size:.85rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:.75rem;
-  background:linear-gradient(
-    90deg,
-    #ff5e1a 0%,
-    #ff7a3d 20%,
-    #ffb27a 40%,
-    #fff4e6 50%,
-    #ffb27a 60%,
-    #ff7a3d 80%,
-    #ff5e1a 100%
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(1.8rem, 3vw, 2.6rem);
+  text-transform:none;
+  letter-spacing:.02em;
+  margin-bottom:2.5rem;
+  background:linear-gradient(90deg,
+    #ff7a3d 0%,
+    #ff7a3d var(--sweep),
+    #2a1508 calc(var(--sweep) + 6%),
+    #2a1508 100%
   );
-  background-size:250% 100%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  animation:label-shimmer 5s ease-in-out infinite;
-  filter:drop-shadow(0 0 8px rgba(255,122,61,.3));
+  animation:letters-light 4s ease-in-out infinite;
+  filter:drop-shadow(0 0 6px rgba(255,122,61,.25));
 }
 .section-label.center{ text-align:center; }
-@keyframes label-shimmer{
-  0%, 100%{ background-position:0% 50%; }
-  50%{ background-position:100% 50%; }
+@keyframes letters-light{
+  0%{ --sweep:0%; }
+  55%{ --sweep:105%; }
+  80%{ --sweep:105%; }
+  81%{ --sweep:0%; }
+  100%{ --sweep:0%; }
 }
 
 .section-title{
