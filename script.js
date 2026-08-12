@@ -42,7 +42,7 @@ const PROJECTS = [
   <a href="https://splice.com/sounds" target="_blank" rel="noopener">Splice Sounds</a>.</p>
 `,
   media: [
-    { type: "video",  src: "https://www.youtube.com/embed/VIDEO_ID_1",  caption: "Full attack sequence — idle → wind-up → slash → impact → cooldown." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence" },
     { type: "image",  src: "img/lava-claw-breakdown.jpg",               caption: "Niagara module stack: Spawn Burst, Curl Noise Force, Scale Color over life." },
     { type: "image",  src: "img/lava-claw-material.jpg",                caption: "Dynamic material instance: panning lava texture with UV distortion and Fresnel rim." },
     { type: "video",  src: "https://www.youtube.com/embed/VIDEO_ID_2",  caption: "Side-by-side comparison: early prototype vs final polished version." },
