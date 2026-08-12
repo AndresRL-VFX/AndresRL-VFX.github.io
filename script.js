@@ -73,7 +73,7 @@ const PROJECTS = [
 `,
   media: [
     { type: "video",  src: "https://player.vimeo.com/video/1206630588",  caption: "Tool example" },
-    { type: "image",  src: "img/PCG.jpg", caption: "Render" },
+    { type: "image",  src: "img/PCG1.jpg", caption: "Render" },
     { type: "image",  src: "img/PCG2.jpg", caption: "Comparison of the spacing between wooden planks." },
     { type: "image",  src: "img/PCG3.jpg",  caption: "Comparison of the track width." },
     { type: "image",  src: "img/PCG4.jpg",  caption: "Comparison of the fence mesh change." },
