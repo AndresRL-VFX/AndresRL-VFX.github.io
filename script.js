@@ -89,7 +89,7 @@ const PROJECTS = [
   title: "ECO OCEAN",
   subtitle: "Serious Games · Unity WebGL",
   category: "videogames",
-  thumb: "img/eco-ocean-thumb.jpg",
+  thumb: "img/eco-ocean-thumb.png",
   desc: `
     <p><strong>Eco Ocean</strong> is a serious game where you become an environmental
     hero tasked with protecting the oceans and marine life by collecting trash
@@ -105,10 +105,10 @@ const PROJECTS = [
   `,
   media: [
     { type: "video", src: "games/eco-ocean/index.html",  caption: "Click on the game to start playing." },
-    { type: "image", src: "img/eco1.jpg",                 caption: "Main menu and game start screen." },
-    { type: "image", src: "img/eco2.jpg",                 caption: "Gameplay — collecting trash before it reaches the water." },
-    { type: "image", src: "img/eco3.jpg",                 caption: "Marine life that the player must avoid touching." },
-    { type: "image", src: "img/eco4.jpg",                 caption: "Higher difficulty stages with increased trash and obstacles." }
+    { type: "image", src: "img/eco1.png",                 caption: "Gameplay" },
+    { type: "image", src: "img/eco2.png",                 caption: "Gameplay" },
+    { type: "image", src: "img/eco3.png",                 caption: "European Commission infographic on single-use plastics and ocean pollution — research context for the game." },
+    
   ]
 },
 ];
