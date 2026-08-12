@@ -85,6 +85,7 @@ const PROJECTS = [
     { type: "image",  src: "img/PCG10.jpg",  caption: "Comparison of the foliage density and direction." },
     { type: "image",  src: "img/PCG11.jpg",  caption: "Comparison of the foliage density and direction." }
   ]
+},      
 {
   title: "ECO OCEAN",
   subtitle: "Serious Games · Unity WebGL",
