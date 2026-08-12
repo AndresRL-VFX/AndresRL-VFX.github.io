@@ -44,12 +44,12 @@ const PROJECTS = [
   media: [
     { type: "video",  src: "https://player.vimeo.com/video/1203296046",  caption: "Full attack sequence." },
     { type: "image",  src: "img/lava-claw-breakdown.jpg", caption: "Screenshoots" },
-    { type: "image",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
+    { type: "video",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
     { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
-    { type: "image",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." }
-    { type: "image",  src: "https://player.vimeo.com/video/1203296929",  caption: "Bite." }
-    { type: "image",  src: "https://player.vimeo.com/video/1203296946",  caption: "Shockwave Floor" }
-    { type: "image",  src: "https://player.vimeo.com/video/1203296956",  caption: "Sphere Explosion." }
+    { type: "video",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." }
+    { type: "video",  src: "https://player.vimeo.com/video/1203296929",  caption: "Bite." }
+    { type: "video",  src: "https://player.vimeo.com/video/1203296946",  caption: "Shockwave Floor" }
+    { type: "video",  src: "https://player.vimeo.com/video/1203296956",  caption: "Sphere Explosion." }
   ]
 },
   {
