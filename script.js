@@ -320,12 +320,11 @@ document.getElementById('lightboxClose').addEventListener('click', closeLightbox
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-/* ========== HERO PARTICLES (naranja, glow, ascendiendo) ========== */
-(function initHeroParticles(){
-  const canvas = document.getElementById('heroParticles');
+/* ========== GLOBAL PARTICLES (naranja, glow, ascendiendo, full page) ========== */
+(function initGlobalParticles(){
+  const canvas = document.getElementById('globalParticles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const hero = document.getElementById('intro');
 
   let particles = [];
   let w, h, dpr;
@@ -335,12 +334,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
 
   function resize(){
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = hero.clientWidth;
-    h = hero.clientHeight;
+    w = window.innerWidth;
+    h = window.innerHeight;
     canvas.width = w * dpr;
     canvas.height = h * dpr;
-    canvas.style.width = w + 'px';
-    canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -363,7 +360,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   }
 
   function initParticles(){
-    const density = Math.max(35, Math.min(90, Math.floor((w * h) / 16000)));
+    const density = Math.max(40, Math.min(100, Math.floor((w * h) / 14000)));
     particles = Array.from({ length: density }, () => makeParticle(false));
   }
 
@@ -418,7 +415,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   initParticles();
 
   if (reduceMotion){
-    step(); // dibuja un frame estático, sin animar
+    step();
   } else {
     requestAnimationFrame(step);
   }
