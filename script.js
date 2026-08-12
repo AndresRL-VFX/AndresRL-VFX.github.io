@@ -27,8 +27,12 @@ const PROJECTS = [
     thumb: "",
     desc: `<p>This VFX was developed in Unreal Engine 5, integrating the Niagara particle system with static meshes and dynamic materials.</p>
        <p>The effect combines world-space simulation with custom material functions for color variation.</p>
-       <p>Submitted to <strong>The Rookies</strong> 2026.</p>`
-    media: []
+       <p>Submitted to <strong>The Rookies</strong> 2026.</p>
+    media:[
+    { type: "image", src: "img/foto1.jpg", caption: "Aquí explicas qué muestra esta foto" },
+    { type: "video", src: "https://www.youtube.com/embed/TU_ID", caption: "Aquí explicas qué se ve en este vídeo" },
+    { type: "image", src: "img/foto2.jpg", caption: "Aquí explicas qué muestra esta segunda foto" }
+     ]
   },
   {
     title: "Holographic Card Shader",
