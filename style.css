@@ -253,7 +253,7 @@ img{ max-width:100%; display:block; }
   inset:-3px;
   border-radius:9px;
   padding:3px;
-  background:conic-gradient(from var(--card-angle), transparent 60%, var(--accent) 80%, transparent 100%);
+  background:conic-gradient(from var(--card-angle), transparent 87%, rgba(255,255,255,.55) 93%, transparent 100%);
   -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
@@ -262,11 +262,11 @@ img{ max-width:100%; display:block; }
 }
 .card:hover{
   transform:translateY(-5px);
-  border-color:transparent;
+  border-color:var(--accent);
 }
 .card:hover::before{
   opacity:1;
-  animation:card-spin 2.5s linear infinite;
+  animation:card-spin 3s linear infinite;
 }
 .card:active{ transform:translateY(-2px) scale(.98); transition-duration:.1s; }
 
