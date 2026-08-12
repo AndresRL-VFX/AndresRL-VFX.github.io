@@ -24,7 +24,7 @@ const PROJECTS = [
     thumb: "img/Werewolf.png",
     desc: "· This VFX was developed in Unreal Engine 5, synergistically integrating the Niagara particle system with static meshes made it in Maya and dynamic materials. ",
     media: [ { type: "image", src: "img/Werewolf.png", caption: "Aquí explicas qué muestra esta foto" },
-  { type: "video", src: "https://www.youtube.com/embed/TU_ID", caption: "Aquí explicas qué se ve en este vídeo" },
+  { type: "video", src: "https://vimeo.com/1203296046?share=copy&fl=sv&fe=ci", caption: "Aquí explicas qué se ve en este vídeo" },
   { type: "image", src: "img/Werewolf.png", caption: "Aquí explicas qué muestra esta segunda foto" }]
   },
   {
