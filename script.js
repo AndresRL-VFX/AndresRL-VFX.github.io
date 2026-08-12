@@ -227,13 +227,28 @@ document.querySelectorAll('.nav-links a, .contact-links a, .btn').forEach(el => 
   el.addEventListener('click', playPop);
 });
 
-/* ========== NAV ACTIVE STATE ========== */
+/* ========== NAV ACTIVE STATE (sliding indicator) ========== */
 const navLinkEls = document.querySelectorAll('.nav-links a');
 const navSections = Array.from(navLinkEls).map(a => document.querySelector(a.getAttribute('href')));
+const navContainer = document.getElementById('navLinks');
+const navIndicator = document.getElementById('navIndicator');
+
+function moveIndicatorTo(link){
+  if (!link || !navContainer || !navIndicator) return;
+  const containerRect = navContainer.getBoundingClientRect();
+  const linkRect = link.getBoundingClientRect();
+  const x = linkRect.left - containerRect.left;
+  navIndicator.style.transform = `translateX(${x}px)`;
+  navIndicator.style.width = linkRect.width + 'px';
+  navIndicator.classList.add('visible');
+}
 
 function setActiveNavLink(link){
   navLinkEls.forEach(a => a.classList.remove('active'));
-  if (link) link.classList.add('active');
+  if (link){
+    link.classList.add('active');
+    moveIndicatorTo(link);
+  }
 }
 
 navLinkEls.forEach(link => {
@@ -249,7 +264,31 @@ const navObserver = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-45% 0px -45% 0px' });
 
+/* Force last nav link active when scrolled to the very bottom of the page */
+function checkBottomOfPage(){
+  const scrollBottom = window.innerHeight + window.scrollY;
+  const pageHeight = document.documentElement.scrollHeight;
+  if (scrollBottom >= pageHeight - 4){
+    setActiveNavLink(navLinkEls[navLinkEls.length - 1]);
+  }
+}
+window.addEventListener('scroll', checkBottomOfPage, { passive: true });
+
 navSections.forEach(sec => { if (sec) navObserver.observe(sec); });
+
+/* Set initial indicator position on load and keep it correct on resize */
+window.addEventListener('load', () => {
+  const current = document.querySelector('.nav-links a.active') || navLinkEls[0];
+  moveIndicatorTo(current);
+});
+let navResizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(navResizeTimeout);
+  navResizeTimeout = setTimeout(() => {
+    const current = document.querySelector('.nav-links a.active');
+    if (current) moveIndicatorTo(current);
+  }, 150);
+});
 
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
