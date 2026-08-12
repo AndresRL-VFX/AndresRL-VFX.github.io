@@ -132,12 +132,12 @@ const PROJECTS = [
   `,
   media: [
     { type: "video", src: "https://www.youtube.com/embed/76QVqRU_a_w", caption: "Official trailer." },
-    { type: "image", src: "img/ghost1.png", caption: "Gameplay — Menu in game." },
-    { type: "image", src: "img/ghost2.png", caption: "Gameplay — Combat encounter using the sword combo system." },
-    { type: "image", src: "img/ghost3.png", caption: "Gameplay — Ranged combat with the projectile weapon." },
-    { type: "image", src: "img/ghost5.png", caption: "Gameplay — Using the dash ability." },
-    { type: "image", src: "img/ghost4.png", caption: "Gameplay — Ranged combat with the projectile weapon and blink effect in enemies." },
-    { type: "image", src: "img/ghost6.png", caption: "Gameplay- Using the double jump" }
+    { type: "image", src: "img/ghost1.png", caption: "Gameplay — menu in game." },
+    { type: "image", src: "img/ghost2.png", caption: "Gameplay — combat encounter using the sword combo system." },
+    { type: "image", src: "img/ghost3.png", caption: "Gameplay — ranged combat with the projectile weapon." },
+    { type: "image", src: "img/ghost5.png", caption: "Gameplay — using the dash ability." },
+    { type: "image", src: "img/ghost4.png", caption: "Gameplay — ranged combat with the projectile weapon and blink effect in enemies." },
+    { type: "image", src: "img/ghost6.png", caption: "Gameplay- using the double jump" }
   ]
 },
 ];
