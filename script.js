@@ -25,7 +25,9 @@ const PROJECTS = [
     subtitle: "VFX Graph · Fighting Krazy Chickens",
     category: "vfx-shader",
     thumb: "",
-    desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
+    desc: `<p>This VFX was developed in Unreal Engine 5, integrating the Niagara particle system with static meshes and dynamic materials.</p>
+       <p>The effect combines world-space simulation with custom material functions for color variation.</p>
+       <p>Submitted to <strong>The Rookies</strong> 2026.</p>`
     media: []
   },
   {
