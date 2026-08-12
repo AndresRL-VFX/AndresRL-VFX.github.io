@@ -57,39 +57,21 @@ img{ max-width:100%; display:block; }
 
 .accent{ color:var(--accent); }
 
-@property --sweep{
-  syntax:'<percentage>';
-  initial-value:0%;
-  inherits:false;
+.hero-accent{
+  color:var(--accent);
+  filter:drop-shadow(0 0 12px rgba(255,122,61,.5));
 }
 
 .section-label{
   font-family:var(--font-display);
   font-weight:600;
   font-size:clamp(1.8rem, 3vw, 2.6rem);
-  text-transform:none;
   letter-spacing:.02em;
   margin-bottom:2.5rem;
-  background:linear-gradient(90deg,
-    #ff7a3d 0%,
-    #ff7a3d var(--sweep),
-    #2a1508 calc(var(--sweep) + 6%),
-    #2a1508 100%
-  );
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:letters-light 4s ease-in-out infinite;
-  filter:drop-shadow(0 0 6px rgba(255,122,61,.25));
+  color:var(--accent);
+  filter:drop-shadow(0 0 10px rgba(255,122,61,.35));
 }
 .section-label.center{ text-align:center; }
-@keyframes letters-light{
-  0%{ --sweep:0%; }
-  55%{ --sweep:105%; }
-  80%{ --sweep:105%; }
-  81%{ --sweep:0%; }
-  100%{ --sweep:0%; }
-}
 
 .section-title{
   font-family:var(--font-display);
