@@ -86,6 +86,16 @@ const PROJECTS = [
     { type: "image",  src: "img/PCG11.jpg",  caption: "Comparison of the foliage density and direction." }
   ]
 },
+   {
+  title: "ECO OCEAN",
+  subtitle: "Unity WebGL · Videogame",
+  category: "videogames",
+  thumb: "img/eco-ocean-thumb.jpg",
+  desc: `<p>Tu descripción del juego aquí.</p>`,
+  media: [
+    { type: "video", src: "games/eco-ocean/index.html", caption: "Click on the game to start playing." }
+  ]
+},
 ];
 
 /* ========== RENDER GRID ========== */
