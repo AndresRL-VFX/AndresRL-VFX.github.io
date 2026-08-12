@@ -111,6 +111,29 @@ const PROJECTS = [
     { type: "image", src: "img/eco3.png",                 caption: "European Commission infographic on single-use plastics and ocean pollution — research context for the game." },
   ]
 },
+   {
+  title: "Ghost from the Past",
+  subtitle: "2D Platformer · Unity",
+  category: "videogames",
+  thumb: "img/ghost-thumb.jpg",
+  desc: `
+    <p>Play as a former thief whose dark past comes back to haunt him when a mysterious
+    adversary discovers his secret identity. Now under constant threat of exposure,
+    you must fulfill your blackmailer's dangerous demands.</p>
+
+    <p>In this <strong>2D platformer and action game</strong>, every move could be
+    your last as you try to permanently escape your criminal legacy.</p>
+
+    <p><a href="games/ghost-from-the-past.zip" download class="desc-download">⬇ Download Game</a></p>
+  `,
+  media: [
+    { type: "video", src: "https://www.youtube.com/embed/TU_VIDEO_ID", caption: "Official trailer." },
+    { type: "image", src: "img/ghost1.jpg", caption: "Caption de la foto 1." },
+    { type: "image", src: "img/ghost2.jpg", caption: "Caption de la foto 2." },
+    { type: "image", src: "img/ghost3.jpg", caption: "Caption de la foto 3." },
+    { type: "image", src: "img/ghost4.jpg", caption: "Caption de la foto 4." }
+  ]
+},
 ];
 
 /* ========== RENDER GRID ========== */
