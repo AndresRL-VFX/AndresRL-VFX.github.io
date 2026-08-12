@@ -73,13 +73,17 @@ const PROJECTS = [
 `,
   media: [
     { type: "video",  src: "https://player.vimeo.com/video/1206630588",  caption: "Tool example" },
-    { type: "image",  src: "img/4VFX.webp", caption: "Render" },
-    { type: "video",  src: "https://player.vimeo.com/video/1203296679", caption: "Claws." },
-    { type: "video",  src: "https://player.vimeo.com/video/1203296867",  caption: "Crack Parallax." },
-    { type: "video",  src: "https://player.vimeo.com/video/1203296898",  caption: "Bite Trail." },
-    { type: "video",  src: "https://player.vimeo.com/video/1203296929",  caption: "Bite." },
-    { type: "video",  src: "https://player.vimeo.com/video/1203296946",  caption: "Shockwave Floor" },
-    { type: "video",  src: "https://player.vimeo.com/video/1203296956",  caption: "Sphere Explosion." }
+    { type: "image",  src: "img/PCG.jpg", caption: "Render" },
+    { type: "image",  src: "img/PCG2.jpg", caption: "Comparison of the spacing between wooden planks." },
+    { type: "image",  src: "img/PCG3.jpg",  caption: "Comparison of the track width." },
+    { type: "image",  src: "img/PCG4.jpg",  caption: "Comparison of the fence mesh change." },
+    { type: "image",  src: "img/PCG5.jpg",  caption: "Comparison of the fence height." },
+    { type: "image",  src: "img/PCG6.jpg",  caption: "Detail of the light post Level Instances distributed along the track." },
+    { type: "image",  src: "img/PCG7.jpg",  caption: "Comparison of the light post Level Instances density." },
+    { type: "image",  src: "img/PCG8.jpg",  caption: "Comparison of the pillar density." },
+    { type: "image",  src: "img/PCG9.jpg",  caption: "Comparison of the pillar mesh change." },
+    { type: "image",  src: "img/PCG10.jpg",  caption: "Comparison of the foliage density and direction." },
+    { type: "image",  src: "img/PCG11.jpg",  caption: "Comparison of the foliage density and direction." }
   ]
 },
 ];
