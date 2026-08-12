@@ -183,7 +183,8 @@ img{ max-width:100%; display:block; }
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   opacity:0;
-  transition:opacity .05s;
+  animation:none;
+  transition:none;
 }
 .filter-btn:hover{
   border-color:var(--accent);
@@ -310,7 +311,8 @@ img{ max-width:100%; display:block; }
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   opacity:0;
-  transition:opacity .05s;
+  animation:none;
+  transition:none;
 }
 .exp-tab:hover{
   border-color:var(--accent);
