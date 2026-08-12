@@ -227,6 +227,30 @@ document.querySelectorAll('.nav-links a, .contact-links a, .btn').forEach(el => 
   el.addEventListener('click', playPop);
 });
 
+/* ========== NAV ACTIVE STATE ========== */
+const navLinkEls = document.querySelectorAll('.nav-links a');
+const navSections = Array.from(navLinkEls).map(a => document.querySelector(a.getAttribute('href')));
+
+function setActiveNavLink(link){
+  navLinkEls.forEach(a => a.classList.remove('active'));
+  if (link) link.classList.add('active');
+}
+
+navLinkEls.forEach(link => {
+  link.addEventListener('click', () => setActiveNavLink(link));
+});
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      const idx = navSections.indexOf(entry.target);
+      if (idx !== -1) setActiveNavLink(navLinkEls[idx]);
+    }
+  });
+}, { rootMargin: '-45% 0px -45% 0px' });
+
+navSections.forEach(sec => { if (sec) navObserver.observe(sec); });
+
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
