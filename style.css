@@ -57,15 +57,34 @@ img{ max-width:100%; display:block; }
 
 .accent{ color:var(--accent); }
 
-.eyebrow{
+.section-label{
   font-family:var(--font-mono);
-  font-size:.75rem;
-  letter-spacing:.08em;
-  color:var(--accent);
+  font-size:.85rem;
   text-transform:uppercase;
+  letter-spacing:.12em;
   margin-bottom:.75rem;
+  background:linear-gradient(
+    90deg,
+    #ff5e1a 0%,
+    #ff7a3d 20%,
+    #ffb27a 40%,
+    #fff4e6 50%,
+    #ffb27a 60%,
+    #ff7a3d 80%,
+    #ff5e1a 100%
+  );
+  background-size:250% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:label-shimmer 5s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(255,122,61,.3));
 }
-.eyebrow.center{ text-align:center; }
+.section-label.center{ text-align:center; }
+@keyframes label-shimmer{
+  0%, 100%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+}
 
 .section-title{
   font-family:var(--font-display);
