@@ -115,7 +115,7 @@ const PROJECTS = [
   title: "Ghost from the Past",
   subtitle: "2D Platformer · Unity",
   category: "videogames",
-  thumb: "img/ghost-thumb.jpg",
+  thumb: "img/ghost5.png",
   desc: `
     <p>Play as a former thief whose dark past comes back to haunt him when a mysterious
     adversary discovers his secret identity. Now under constant threat of exposure,
@@ -128,10 +128,11 @@ const PROJECTS = [
   `,
   media: [
     { type: "video", src: "https://www.youtube.com/embed/TU_VIDEO_ID", caption: "Official trailer." },
-    { type: "image", src: "img/ghost1.jpg", caption: "Caption de la foto 1." },
-    { type: "image", src: "img/ghost2.jpg", caption: "Caption de la foto 2." },
-    { type: "image", src: "img/ghost3.jpg", caption: "Caption de la foto 3." },
-    { type: "image", src: "img/ghost4.jpg", caption: "Caption de la foto 4." }
+    { type: "image", src: "img/ghost1.png", caption: "Caption de la foto 1." },
+    { type: "image", src: "img/ghost2.png", caption: "Caption de la foto 2." },
+    { type: "image", src: "img/ghost3.png", caption: "Caption de la foto 3." },
+    { type: "image", src: "img/ghost4.png", caption: "Caption de la foto 3." },
+    { type: "image", src: "img/ghost5.png", caption: "Caption de la foto 4." }
   ]
 },
 ];
