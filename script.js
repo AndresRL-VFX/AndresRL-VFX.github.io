@@ -120,12 +120,38 @@ function renderGrid(filter = 'all'){
 }
 renderGrid();
 
+/* ========== UI SOUND (synthetic pop) ========== */
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let _audioCtx;
+
+function playPop(){
+  if (!_audioCtx) _audioCtx = new AudioCtx();
+  const ctx = _audioCtx;
+
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(900, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
+
+  gain.gain.setValueAtTime(0.15, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + 0.12);
+}
+
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderGrid(btn.dataset.filter);
+    playPop();
   });
 });
 
@@ -136,6 +162,7 @@ document.querySelectorAll('.exp-tab').forEach(tab => {
     tab.classList.add('active');
     document.getElementById('timeline-professional').classList.toggle('hidden', tab.dataset.tab !== 'professional');
     document.getElementById('timeline-education').classList.toggle('hidden', tab.dataset.tab !== 'education');
+    playPop();
   });
 });
 
