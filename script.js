@@ -6,6 +6,9 @@
    -> thumb: path to the card's cover image (e.g. "img/flamethrower.jpg").
       Leave it as "" to show a text placeholder instead.
    -> desc: overall project description (shown once, below the viewer).
+      Supports HTML — wrap paragraphs in <p> tags for multi-paragraph
+      descriptions, and use <strong>, <ul>/<li>, etc. as needed.
+      Example: "<p>First paragraph.</p><p>Second paragraph with <strong>bold</strong>.</p>"
    -> media: ORDERED list of everything shown when the project opens —
       mix videos and photos freely, in any order, and give EACH ONE
       its own caption explaining what you did in that specific clip/shot.
@@ -18,14 +21,12 @@
 ========================================================= */
 const PROJECTS = [
   {
-    title: "WereWolf Triple Combo VFX",
-    subtitle: "VFX Unreal Engine",
+    title: "Flamethrower VFX",
+    subtitle: "VFX Graph · Fighting Krazy Chickens",
     category: "vfx-shader",
-    thumb: "img/Werewolf.png",
-    desc: "· This VFX was developed in Unreal Engine 5, synergistically integrating the Niagara particle system with static meshes made it in Maya and dynamic materials. ",
-    media: [ { type: "image", src: "img/Werewolf.png", caption: "Aquí explicas qué muestra esta foto" },
-  { type: "video", src: "https://vimeo.com/1203296046?share=copy&fl=sv&fe=ci", caption: "Aquí explicas qué se ve en este vídeo" },
-  { type: "image", src: "img/Werewolf.png", caption: "Aquí explicas qué muestra esta segunda foto" }]
+    thumb: "",
+    desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
+    media: []
   },
   {
     title: "Holographic Card Shader",
@@ -189,7 +190,9 @@ let currentMedia = [];
 
 function renderMediaItem(item, title){
   if (!item) { lbViewer.innerHTML = ''; lbCaption.textContent = ''; return; }
-  lbViewer.innerHTML = item.type === 'video'
+  const isVideo = item.type === 'video';
+  lbViewer.classList.toggle('has-video', isVideo);
+  lbViewer.innerHTML = isVideo
     ? `<iframe src="${item.src}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     : `<img src="${item.src}" alt="${title}">`;
   lbCaption.textContent = item.caption || '';
@@ -204,7 +207,7 @@ function setActiveThumb(index){
 function openLightbox(p){
   lbTag.textContent = p.subtitle;
   lbTitle.textContent = p.title;
-  lbDesc.textContent = p.desc;
+  lbDesc.innerHTML = p.desc;
   currentMedia = p.media || [];
 
   renderMediaItem(currentMedia[0], p.title);
