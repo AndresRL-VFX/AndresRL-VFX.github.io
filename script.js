@@ -110,6 +110,7 @@ const PROJECTS = [
     { type: "image", src: "img/eco2.png",                 caption: "Gameplay" },
     { type: "image", src: "img/eco3.png",                 caption: "European Commission infographic on single-use plastics and ocean pollution — research context for the game." },
   ]
+},      
 {
   title: "Ghost from the Past",
   subtitle: "2D Platformer · Unity",
