@@ -23,7 +23,9 @@ const PROJECTS = [
     category: "vfx-shader",
     thumb: "img/Werewolf.png",
     desc: "Flamethrower effect built in VFX Graph, with local/world simulation space and anchoring via a Position Constraint.",
-    media: []
+    media: [ { type: "image", src: "img/Werewolf.pn", caption: "Aquí explicas qué muestra esta foto" },
+  { type: "video", src: "https://www.youtube.com/embed/TU_ID", caption: "Aquí explicas qué se ve en este vídeo" },
+  { type: "image", src: "img/Werewolf.pn", caption: "Aquí explicas qué muestra esta segunda foto" }]
   },
   {
     title: "Holographic Card Shader",
