@@ -142,6 +142,19 @@ const PROJECTS = [
 },
 ];
 
+/* Build a silent, looping embed URL for hover previews */
+function buildLoopEmbed(src){
+  const separator = src.includes('?') ? '&' : '?';
+  if (src.includes('youtube.com/embed')){
+    const videoId = src.split('/embed/')[1].split('?')[0].split('&')[0];
+    return `${src}${separator}autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`;
+  }
+  if (src.includes('player.vimeo.com')){
+    return `${src}${separator}autoplay=1&muted=1&loop=1&background=1&controls=0`;
+  }
+  return null; // local games/other: no hover preview
+}
+
 /* ========== RENDER GRID ========== */
 const grid = document.getElementById('portfolioGrid');
 
@@ -162,6 +175,7 @@ function renderGrid(filter = 'all'){
         ${p.thumb
           ? `<img src="${p.thumb}" alt="${p.title}">`
           : `<span class="card-thumb-placeholder">Thumbnail<br>${p.title}</span>`}
+        <div class="card-video-preview"></div>
       </div>
       <div class="card-body">
         <h3>${p.title}</h3>
@@ -170,6 +184,28 @@ function renderGrid(filter = 'all'){
     `;
     card.addEventListener('click', () => { playPop(); openLightbox(p); });
     card.addEventListener('mouseenter', playHover);
+
+    /* Hover preview: play first video of the project, muted and looped */
+    const firstMedia = p.media && p.media[0];
+    if (firstMedia && firstMedia.type === 'video'){
+      const loopSrc = buildLoopEmbed(firstMedia.src);
+      if (loopSrc){
+        const previewBox = card.querySelector('.card-video-preview');
+        let hoverTimeout;
+        card.addEventListener('mouseenter', () => {
+          hoverTimeout = setTimeout(() => {
+            previewBox.innerHTML = `<iframe src="${loopSrc}" allow="autoplay; encrypted-media" frameborder="0"></iframe>`;
+            previewBox.classList.add('active');
+          }, 200); // small delay to avoid loading on quick mouse passes
+        });
+        card.addEventListener('mouseleave', () => {
+          clearTimeout(hoverTimeout);
+          previewBox.classList.remove('active');
+          previewBox.innerHTML = '';
+        });
+      }
+    }
+
     grid.appendChild(card);
   });
 }
