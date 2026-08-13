@@ -239,6 +239,36 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
+/* ========== NAV ACTIVE STATE (based on scroll position) ========== */
+const navLinkEls = document.querySelectorAll('.nav-links a');
+const navSections = Array.from(navLinkEls).map(a => document.querySelector(a.getAttribute('href')));
+
+function setActiveNavLink(link){
+  navLinkEls.forEach(a => a.classList.remove('active'));
+  if (link) link.classList.add('active');
+}
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      const idx = navSections.indexOf(entry.target);
+      if (idx !== -1) setActiveNavLink(navLinkEls[idx]);
+    }
+  });
+}, { rootMargin: '-45% 0px -45% 0px' });
+
+navSections.forEach(sec => { if (sec) navObserver.observe(sec); });
+
+/* Force last nav link active when scrolled to the very bottom of the page */
+function checkBottomOfPage(){
+  const scrollBottom = window.innerHeight + window.scrollY;
+  const pageHeight = document.documentElement.scrollHeight;
+  if (scrollBottom >= pageHeight - 4){
+    setActiveNavLink(navLinkEls[navLinkEls.length - 1]);
+  }
+}
+window.addEventListener('scroll', checkBottomOfPage, { passive: true });
+
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
