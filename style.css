@@ -204,8 +204,27 @@ img{ max-width:100%; display:block; }
 }
 .btn:hover{ transform:translateY(-2px); }
 .btn:active{ transform:scale(.95); transition-duration:.1s; }
-.btn-primary{ background:var(--accent); color:#0b0b0d; border-color:var(--accent); font-weight:600; }
+.btn-primary{
+  background:var(--accent);
+  color:#0b0b0d;
+  border-color:var(--accent);
+  font-weight:600;
+  animation:btn-glow-pulse 2.5s ease-in-out infinite;
+}
 .btn-primary:hover{ opacity:.88; }
+.btn-arrow{
+  display:inline-block;
+  margin-left:.3rem;
+  animation:arrow-bounce 1.8s ease-in-out infinite;
+}
+@keyframes arrow-bounce{
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(5px); }
+}
+@keyframes btn-glow-pulse{
+  0%, 100%{ box-shadow:0 0 12px rgba(255,122,61,.35); }
+  50%{ box-shadow:0 0 24px rgba(255,122,61,.65); }
+}
 .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
 
 /* ===== Filters ===== */
