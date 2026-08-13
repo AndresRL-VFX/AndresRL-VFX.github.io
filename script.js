@@ -257,7 +257,8 @@ const navObserver = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-45% 0px -45% 0px' });
 
-navSections.forEach(sec => { if (sec) navObserver.observe(sec); });
+/* Contact (last link) only activates when scrolled to the very bottom, not via mid-viewport observer */
+navSections.slice(0, -1).forEach(sec => { if (sec) navObserver.observe(sec); });
 
 /* Force last nav link active when scrolled to the very bottom of the page */
 function checkBottomOfPage(){
