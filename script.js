@@ -227,6 +227,18 @@ document.querySelectorAll('.nav-links a, .contact-links a, .btn').forEach(el => 
   el.addEventListener('click', playPop);
 });
 
+/* Nav link click: retriggerable square pop-in animation */
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    link.classList.remove('clicked');
+    void link.offsetWidth; // force reflow to allow re-trigger
+    link.classList.add('clicked');
+  });
+  link.addEventListener('animationend', () => {
+    link.classList.remove('clicked');
+  });
+});
+
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
