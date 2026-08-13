@@ -377,10 +377,10 @@ let currentMedia = [];
 function withAutoplay(src){
   const separator = src.includes('?') ? '&' : '?';
   if (src.includes('youtube.com/embed')){
-    return `${src}${separator}autoplay=1&mute=1&rel=0`;
+    return `${src}${separator}autoplay=1&rel=0`;
   }
   if (src.includes('player.vimeo.com')){
-    return `${src}${separator}autoplay=1&muted=1`;
+    return `${src}${separator}autoplay=1`;
   }
   return src; // local games / other embeds: leave untouched
 }
