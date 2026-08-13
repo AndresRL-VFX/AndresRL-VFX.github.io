@@ -142,6 +142,22 @@ const PROJECTS = [
 },
 ];
 
+/* Get a real thumbnail image for a video embed */
+function getYoutubeThumb(src){
+  const match = src.match(/embed\/([^?&]+)/);
+  return match ? `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg` : null;
+}
+
+async function setVimeoThumb(imgEl, src){
+  const match = src.match(/video\/(\d+)/);
+  if (!match) return;
+  try {
+    const res = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${match[1]}`);
+    const data = await res.json();
+    if (data.thumbnail_url) imgEl.src = data.thumbnail_url;
+  } catch (e) { /* leave placeholder if it fails */ }
+}
+
 /* Build a silent, looping embed URL for hover previews */
 function buildLoopEmbed(src){
   const separator = src.includes('?') ? '&' : '?';
@@ -395,13 +411,29 @@ function openLightbox(p){
 
   if (currentMedia.length > 1){
     lbThumbs.style.display = 'flex';
-    lbThumbs.innerHTML = currentMedia.map((item, i) => `
-      <div class="lightbox-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
-        ${item.type === 'video'
-          ? `<span class="thumb-play">▶</span>`
-          : `<img src="${item.src}" alt="">`}
-      </div>
-    `).join('');
+    lbThumbs.innerHTML = currentMedia.map((item, i) => {
+      if (item.type === 'video'){
+        const ytThumb = getYoutubeThumb(item.src);
+        return `
+          <div class="lightbox-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
+            <img class="thumb-bg" src="${ytThumb || ''}" alt="">
+            <span class="thumb-play">▶</span>
+          </div>`;
+      }
+      return `
+        <div class="lightbox-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
+          <img src="${item.src}" alt="">
+        </div>`;
+    }).join('');
+
+    /* Fetch Vimeo thumbnails asynchronously (no direct predictable URL like YouTube) */
+    currentMedia.forEach((item, i) => {
+      if (item.type === 'video' && item.src.includes('vimeo.com') && !getYoutubeThumb(item.src)){
+        const imgEl = lbThumbs.querySelectorAll('.lightbox-thumb')[i].querySelector('.thumb-bg');
+        if (imgEl) setVimeoThumb(imgEl, item.src);
+      }
+    });
+
     lbThumbs.querySelectorAll('.lightbox-thumb').forEach(el => {
       el.addEventListener('click', () => {
         const i = Number(el.dataset.index);
