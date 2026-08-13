@@ -248,27 +248,47 @@ function setActiveNavLink(link){
   if (link) link.classList.add('active');
 }
 
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting){
-      const idx = navSections.indexOf(entry.target);
-      if (idx !== -1) setActiveNavLink(navLinkEls[idx]);
+/* Determine active section by checking which section contains the
+   vertical center point of the viewport. Contact (last link) only
+   activates when scrolled all the way to the bottom of the page. */
+function updateActiveNav(){
+  const scrollCenter = window.scrollY + window.innerHeight / 2;
+  const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
+  const lastIndex = navLinkEls.length - 1;
+
+  if (atBottom){
+    setActiveNavLink(navLinkEls[lastIndex]);
+    return;
+  }
+
+  let activeIndex = 0;
+  navSections.forEach((sec, i) => {
+    if (!sec || i === lastIndex) return; // skip Contact unless at bottom
+    const rect = sec.getBoundingClientRect();
+    const top = rect.top + window.scrollY;
+    const bottom = top + rect.height;
+    if (scrollCenter >= top && scrollCenter < bottom){
+      activeIndex = i;
     }
   });
-}, { rootMargin: '-45% 0px -45% 0px' });
 
-/* Contact (last link) only activates when scrolled to the very bottom, not via mid-viewport observer */
-navSections.slice(0, -1).forEach(sec => { if (sec) navObserver.observe(sec); });
-
-/* Force last nav link active when scrolled to the very bottom of the page */
-function checkBottomOfPage(){
-  const scrollBottom = window.innerHeight + window.scrollY;
-  const pageHeight = document.documentElement.scrollHeight;
-  if (scrollBottom >= pageHeight - 4){
-    setActiveNavLink(navLinkEls[navLinkEls.length - 1]);
-  }
+  setActiveNavLink(navLinkEls[activeIndex]);
 }
-window.addEventListener('scroll', checkBottomOfPage, { passive: true });
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+window.addEventListener('load', updateActiveNav);
+updateActiveNav();
+
+/* Nav link click: scroll so the target section is centered in the viewport */
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    history.pushState(null, '', link.getAttribute('href'));
+  });
+});
 
 /* ========== FILTERS ========== */
 document.querySelectorAll('.filter-btn').forEach(btn => {
