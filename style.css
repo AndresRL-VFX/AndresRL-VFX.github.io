@@ -128,6 +128,11 @@ img{ max-width:100%; display:block; }
   opacity:1;
   transform:scale(1);
 }
+.nav-links a.active{ color:var(--accent); font-weight:600; }
+.nav-links a.active::before{
+  opacity:1;
+  transform:scale(1);
+}
 .nav-links a.clicked::before{
   animation:nav-pop .5s cubic-bezier(.34,1.56,.64,1);
 }
