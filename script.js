@@ -322,12 +322,23 @@ const lbDesc = document.getElementById('lightboxDesc');
 
 let currentMedia = [];
 
+function withAutoplay(src){
+  const separator = src.includes('?') ? '&' : '?';
+  if (src.includes('youtube.com/embed')){
+    return `${src}${separator}autoplay=1&mute=1&rel=0`;
+  }
+  if (src.includes('player.vimeo.com')){
+    return `${src}${separator}autoplay=1&muted=1`;
+  }
+  return src; // local games / other embeds: leave untouched
+}
+
 function renderMediaItem(item, title){
   if (!item) { lbViewer.innerHTML = ''; lbCaption.textContent = ''; return; }
   const isVideo = item.type === 'video';
   lbViewer.classList.toggle('has-video', isVideo);
   lbViewer.innerHTML = isVideo
-    ? `<iframe src="${item.src}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    ? `<iframe src="${withAutoplay(item.src)}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     : `<img src="${item.src}" alt="${title}">`;
   lbCaption.textContent = item.caption || '';
 }
