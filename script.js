@@ -90,7 +90,7 @@ const PROJECTS = [
 },      
 {
  title: "TWW: Those We Wear",
-  subtitle: "Unity · Action Combat Game",
+  subtitle: "Isometric Action-adventure · Unity",
   category: "videogames",
   thumb: "img/TWW_Portada.png",
   desc: `
