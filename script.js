@@ -140,45 +140,6 @@ const PROJECTS = [
     { type: "image", src: "img/ghost6.png", caption: "Gameplay- using the double jump" }
   ]
 },
- {
-  title: "TWW: Those We Wear",
-  subtitle: "Unity · Action Combat Game",
-  category: "videogames",
-  thumb: "img/TWW_Portada.jpg",
-  desc: `
-    <p><strong>Those We Wear</strong> is a team project developed over two academic
-    years — started in 3rd year and completed in 4th year of the degree.</p>
-
-    <p><strong>My role covered several disciplines:</strong></p>
-
-    <p><strong>Environment Art</strong><br>
-    Modeling and texturing of the scenario, plus scene lighting.</p>
-
-    <p><strong>Character Programming</strong><br>
-    Melee combat with a 3-hit sword combo, interactive projectiles that react
-    with switches and enemies, and dash mechanics.</p>
-
-    <p><strong>Enemy AI & Systems</strong><br>
-    Full enemy programming, including a target-lock system for combat.
-    Animations were integrated using a <strong>9-directional Blend Tree</strong>
-    to drive locomotion relative to the locked target.</p>
-
-    <p><strong>VFX</strong><br>
-    Particle effects for combat, abilities and environmental feedback.</p>
-  `,
-  media: [
-    { type: "video", src: "videos/TWW_Combatvideo.mp4",     caption: "Melee combat — 3-hit sword combo." },
-    { type: "video", src: "videos/TWW_Tutorial.mp4",    caption: "In-game tutorial sequence." }
-    { type: "video", src: "videos/TWW_Combat2.mp4",     caption: "Melee combat — combo variations." },
-    { type: "video", src: "videos/TWW_Combat.mp4",     caption: "Melee combat — interactive projectiles hitting switches and enemies." },
-    { type: "video", src: "videos/TWW_Dash.mp4",        caption: "Dash mechanic." },
-    { type: "video", src: "videos/TWW_LockEnemies.mp4",      caption: "Enemy AI in combat." },
-    { type: "video", src: "videos/TWW_enemy2.mp4",      caption: "Enemy AI — behavior showcase." },
-    { type: "video", src: "videos/TWW_enemy3.mp4", caption: "Target-lock system — gameplay." },
-    { type: "video", src: "videos/lock-blendtree.mp4", caption: "Target-lock system — 9-directional Blend Tree breakdown." },
-  ]
-},  
-}
 ];
 
 /* Get a real thumbnail image for a video embed */
@@ -197,6 +158,11 @@ async function setVimeoThumb(imgEl, src){
   } catch (e) { /* leave placeholder if it fails */ }
 }
 
+/* Detect a local video file (mp4/webm/mov) vs a YouTube/Vimeo embed */
+function isLocalVideo(src){
+  return !src.includes('youtube.com/embed') && !src.includes('player.vimeo.com') && /\.(mp4|webm|mov|ogg)(\?|$)/i.test(src);
+}
+
 /* Build a silent, looping embed URL for hover previews */
 function buildLoopEmbed(src){
   const separator = src.includes('?') ? '&' : '?';
@@ -207,6 +173,7 @@ function buildLoopEmbed(src){
   if (src.includes('player.vimeo.com')){
     return `${src}${separator}autoplay=1&muted=1&loop=1&background=1&controls=0`;
   }
+  if (isLocalVideo(src)) return src; // handled as <video> tag, not iframe
   return null; // local games/other: no hover preview
 }
 
@@ -246,10 +213,13 @@ function renderGrid(filter = 'all'){
       const loopSrc = buildLoopEmbed(firstMedia.src);
       if (loopSrc){
         const previewBox = card.querySelector('.card-video-preview');
+        const isLocal = isLocalVideo(firstMedia.src);
         let hoverTimeout;
         card.addEventListener('mouseenter', () => {
           hoverTimeout = setTimeout(() => {
-            previewBox.innerHTML = `<iframe src="${loopSrc}" allow="autoplay; encrypted-media" frameborder="0"></iframe>`;
+            previewBox.innerHTML = isLocal
+              ? `<video src="${loopSrc}" autoplay muted loop playsinline></video>`
+              : `<iframe src="${loopSrc}" allow="autoplay; encrypted-media" frameborder="0"></iframe>`;
             previewBox.classList.add('active');
           }, 200); // small delay to avoid loading on quick mouse passes
         });
@@ -428,9 +398,13 @@ function renderMediaItem(item, title){
   if (!item) { lbViewer.innerHTML = ''; lbCaption.textContent = ''; return; }
   const isVideo = item.type === 'video';
   lbViewer.classList.toggle('has-video', isVideo);
-  lbViewer.innerHTML = isVideo
-    ? `<iframe src="${withAutoplay(item.src)}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-    : `<img src="${item.src}" alt="${title}">`;
+  if (isVideo && isLocalVideo(item.src)){
+    lbViewer.innerHTML = `<video src="${item.src}" controls autoplay playsinline></video>`;
+  } else {
+    lbViewer.innerHTML = isVideo
+      ? `<iframe src="${withAutoplay(item.src)}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      : `<img src="${item.src}" alt="${title}">`;
+  }
   lbCaption.textContent = item.caption || '';
 }
 
@@ -452,6 +426,13 @@ function openLightbox(p){
     lbThumbs.style.display = 'flex';
     lbThumbs.innerHTML = currentMedia.map((item, i) => {
       if (item.type === 'video'){
+        if (isLocalVideo(item.src)){
+          return `
+            <div class="lightbox-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
+              <video class="thumb-bg" src="${item.src}#t=0.1" muted preload="metadata" playsinline></video>
+              <span class="thumb-play">▶</span>
+            </div>`;
+        }
         const ytThumb = getYoutubeThumb(item.src);
         return `
           <div class="lightbox-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
