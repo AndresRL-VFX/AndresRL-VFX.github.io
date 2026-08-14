@@ -122,7 +122,7 @@ const PROJECTS = [
     Alejandro, Ignacio and Javier Reyes.</p>
   `,
   media: [
-    { type: "video", src: "videos/TWW_Combatvideo.mp4",  caption: "Melee combat — 3-hit sword combo, showing enemy feedback: blink flash, a 0.1s hit-stop freeze, knockback and particle effects." },
+    { type: "video", src: "videos/TWW_CombatVideo.mp4",  caption: "Melee combat — 3-hit sword combo, showing enemy feedback: blink flash, a 0.1s hit-stop freeze, knockback and particle effects." },
     { type: "video", src: "videos/TWW_Enemy3.mp4",      caption: "Combat against enemies — the basic enemy and the jumping enemy." },
     { type: "video", src: "videos/TWW_Tutorial.mp4",    caption: "In-game tutorial sequence." },
     { type: "video", src: "videos/lock-blendtree.mp4", caption: "Target-lock system — Blend Tree showcase in the Animator." },
