@@ -92,7 +92,7 @@ const PROJECTS = [
  title: "TWW: Those We Wear",
   subtitle: "Unity · Action Combat Game",
   category: "videogames",
-  thumb: "img/TWW_Portada.jpg",
+  thumb: "img/TWW_Portada.png",
   desc: `
     <p><strong>Those We Wear</strong> is a team project developed over two academic
     years — started in 3rd year and completed in 4th year of the degree. The final
