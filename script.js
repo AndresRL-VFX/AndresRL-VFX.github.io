@@ -140,6 +140,44 @@ const PROJECTS = [
     { type: "image", src: "img/ghost6.png", caption: "Gameplay- using the double jump" }
   ]
 },
+ {
+  title: "TWW: Those We Wear",
+  subtitle: "Unity · Action Combat Game",
+  category: "videogames",
+  thumb: "img/TWW_Portada.jpg",
+  desc: `
+    <p><strong>Those We Wear</strong> is a team project developed over two academic
+    years — started in 3rd year and completed in 4th year of the degree.</p>
+
+    <p><strong>My role covered several disciplines:</strong></p>
+
+    <p><strong>Environment Art</strong><br>
+    Modeling and texturing of the scenario, plus scene lighting.</p>
+
+    <p><strong>Character Programming</strong><br>
+    Melee combat with a 3-hit sword combo, interactive projectiles that react
+    with switches and enemies, and dash mechanics.</p>
+
+    <p><strong>Enemy AI & Systems</strong><br>
+    Full enemy programming, including a target-lock system for combat.
+    Animations were integrated using a <strong>9-directional Blend Tree</strong>
+    to drive locomotion relative to the locked target.</p>
+
+    <p><strong>VFX</strong><br>
+    Particle effects for combat, abilities and environmental feedback.</p>
+  `,
+  media: [
+    { type: "video", src: "videos/TWW_Combatvideo.mp4",     caption: "Melee combat — 3-hit sword combo." },
+    { type: "video", src: "videos/TWW_Tutorial.mp4",    caption: "In-game tutorial sequence." }
+    { type: "video", src: "videos/TWW_Combat2.mp4",     caption: "Melee combat — combo variations." },
+    { type: "video", src: "videos/TWW_Combat.mp4",     caption: "Melee combat — interactive projectiles hitting switches and enemies." },
+    { type: "video", src: "videos/TWW_Dash.mp4",        caption: "Dash mechanic." },
+    { type: "video", src: "videos/TWW_LockEnemies.mp4",      caption: "Enemy AI in combat." },
+    { type: "video", src: "videos/TWW_enemy2.mp4",      caption: "Enemy AI — behavior showcase." },
+    { type: "video", src: "videos/TWW_enemy3.mp4", caption: "Target-lock system — gameplay." },
+    { type: "video", src: "videos/lock-blendtree.mp4", caption: "Target-lock system — 9-directional Blend Tree breakdown." },
+  ]
+},  
 ];
 
 /* Get a real thumbnail image for a video embed */
