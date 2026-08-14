@@ -107,12 +107,12 @@ const PROJECTS = [
     <p><strong>Character Programming</strong><br>
     Movement, melee combat with a 3-hit sword combo, interactive projectiles
     that react with switches and enemies, dash mechanics, UI and menu implementation,
-    several game managers (game state, combat, and UI flow), and a
-    <strong>Sound Manager implemented with FMOD</strong>.</p>
+    several game managers (game state, combat), and a
+    Sound Manager implemented with FMOD.</p>
 
     <p><strong>Enemy AI & Systems</strong><br>
     Full enemy programming, including a target-lock system for combat.
-    Animations were integrated using a <strong>9-directional Blend Tree</strong>
+    Animations were integrated using a 9-directional Blend Tree
     to drive locomotion relative to the locked target.</p>
 
     <p><strong>VFX</strong><br>
