@@ -120,6 +120,8 @@ const PROJECTS = [
 
     <p><strong>Team:</strong> Gianmarco, Dani de Tena, Pablo de la Llave, David,
     Alejandro, Ignacio and Javier Reyes.</p>
+
+    <p><a href="games/tww-those-we-wear.zip" download class="desc-download">⬇ Download Game</a></p>
   `,
   media: [
     { type: "video", src: "videos/TWW_CombatVideo.mp4",  caption: "Melee combat — 3-hit sword combo, showing enemy feedback: blink flash, a 0.1s hit-stop freeze, knockback and particle effects." },
