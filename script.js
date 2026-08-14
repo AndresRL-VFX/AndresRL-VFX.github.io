@@ -178,6 +178,7 @@ const PROJECTS = [
     { type: "video", src: "videos/lock-blendtree.mp4", caption: "Target-lock system — 9-directional Blend Tree breakdown." },
   ]
 },  
+}
 ];
 
 /* Get a real thumbnail image for a video embed */
