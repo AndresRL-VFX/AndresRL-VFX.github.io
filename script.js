@@ -89,61 +89,7 @@ const PROJECTS = [
   ]
 },      
 {
-  title: "Eco Ocean",
-  subtitle: "Serious Games · Unity WebGL",
-  category: "videogames",
-  thumb: "img/eco-ocean-thumb.png",
-  desc: `
-    <p><strong>Eco Ocean</strong> is a serious game where you become an environmental
-    hero tasked with protecting the oceans and marine life by collecting trash
-    before it falls into the sea.</p>
-
-    <p>Your mission is to prevent waste and debris from polluting the ocean —
-    use your collector to catch it in time, but be careful not to touch any
-    animals. Difficulty increases over time as more trash appears and sea
-    creatures become harder to avoid.</p>
-
-    <p>This project was featured in the Spanish newspaper <strong>20 Minutos</strong>:
-    <a href="https://www.20minutos.es/noticia/5164805/0/ciencia-ecologia-jovenes-ecologistas-se-inspiran-darwin-para-conservar-planeta/" target="_blank" rel="noopener">Read the article</a>.</p>
-  `,
-  media: [
-    { type: "video", src: "games/eco-ocean/index.html",  caption: "Click on the game to start playing." },
-    { type: "image", src: "img/eco1.png",                 caption: "Gameplay" },
-    { type: "image", src: "img/eco2.png",                 caption: "Gameplay" },
-    { type: "image", src: "img/eco3.png",                 caption: "European Commission infographic on single-use plastics and ocean pollution — research context for the game." },
-  ]
-},      
-{
-  title: "Ghost from the Past",
-  subtitle: "2D Platformer · Unity",
-  category: "videogames",
-  thumb: "img/ghost7.png",
-  desc: `
-    <p>Play as a former thief whose dark past comes back to haunt him when a mysterious
-    adversary discovers his secret identity. Now under constant threat of exposure,
-    you must fulfill your blackmailer's dangerous demands.</p>
-
-    <p>In this <strong>2D platformer and action game</strong>, every move could be
-    your last as you try to permanently escape your criminal legacy.</p>
-
-    <p>My role: <strong>Programmer</strong> — developed all core gameplay mechanics
-    (movement, combat system, abilities, projectiles), UI implementation,
-    and scene lighting setup.</p>
-
-    <p><a href="games/ghost-from-the-past.zip" download class="desc-download">⬇ Download Game</a></p>
-  `,
-  media: [
-    { type: "video", src: "https://www.youtube.com/embed/76QVqRU_a_w", caption: "Official trailer." },
-    { type: "image", src: "img/ghost1.png", caption: "Gameplay — menu in game." },
-    { type: "image", src: "img/ghost2.png", caption: "Gameplay — combat encounter using the sword combo system." },
-    { type: "image", src: "img/ghost3.png", caption: "Gameplay — ranged combat with the projectile weapon." },
-    { type: "image", src: "img/ghost5.png", caption: "Gameplay — using the dash ability." },
-    { type: "image", src: "img/ghost4.png", caption: "Gameplay — ranged combat with the projectile weapon and blink effect in enemies." },
-    { type: "image", src: "img/ghost6.png", caption: "Gameplay- using the double jump" }
-  ]
-},
- {
-  title: "TWW: Those We Wear",
+ title: "TWW: Those We Wear",
   subtitle: "Unity · Action Combat Game",
   category: "videogames",
   thumb: "img/TWW_Portada.jpg",
@@ -185,6 +131,60 @@ const PROJECTS = [
     { type: "video", src: "videos/TWW_Dash.mp4",        caption: "Dash mechanic." },
     { type: "video", src: "videos/TWW_Combat3.mp4",     caption: "Level 2 showcase with a variety of enemies." },
     { type: "video", src: "videos/TWW_Combat2.mp4",     caption: "Melee combat gameplay." }
+  ]
+},      
+{
+title: "Eco Ocean",
+  subtitle: "Serious Games · Unity WebGL",
+  category: "videogames",
+  thumb: "img/eco-ocean-thumb.png",
+  desc: `
+    <p><strong>Eco Ocean</strong> is a serious game where you become an environmental
+    hero tasked with protecting the oceans and marine life by collecting trash
+    before it falls into the sea.</p>
+
+    <p>Your mission is to prevent waste and debris from polluting the ocean —
+    use your collector to catch it in time, but be careful not to touch any
+    animals. Difficulty increases over time as more trash appears and sea
+    creatures become harder to avoid.</p>
+
+    <p>This project was featured in the Spanish newspaper <strong>20 Minutos</strong>:
+    <a href="https://www.20minutos.es/noticia/5164805/0/ciencia-ecologia-jovenes-ecologistas-se-inspiran-darwin-para-conservar-planeta/" target="_blank" rel="noopener">Read the article</a>.</p>
+  `,
+  media: [
+    { type: "video", src: "games/eco-ocean/index.html",  caption: "Click on the game to start playing." },
+    { type: "image", src: "img/eco1.png",                 caption: "Gameplay" },
+    { type: "image", src: "img/eco2.png",                 caption: "Gameplay" },
+    { type: "image", src: "img/eco3.png",                 caption: "European Commission infographic on single-use plastics and ocean pollution — research context for the game." },
+  ]
+},
+ {
+  title: "Ghost from the Past",
+  subtitle: "2D Platformer · Unity",
+  category: "videogames",
+  thumb: "img/ghost7.png",
+  desc: `
+    <p>Play as a former thief whose dark past comes back to haunt him when a mysterious
+    adversary discovers his secret identity. Now under constant threat of exposure,
+    you must fulfill your blackmailer's dangerous demands.</p>
+
+    <p>In this <strong>2D platformer and action game</strong>, every move could be
+    your last as you try to permanently escape your criminal legacy.</p>
+
+    <p>My role: <strong>Programmer</strong> — developed all core gameplay mechanics
+    (movement, combat system, abilities, projectiles), UI implementation,
+    and scene lighting setup.</p>
+
+    <p><a href="games/ghost-from-the-past.zip" download class="desc-download">⬇ Download Game</a></p>
+  `,
+  media: [
+    { type: "video", src: "https://www.youtube.com/embed/76QVqRU_a_w", caption: "Official trailer." },
+    { type: "image", src: "img/ghost1.png", caption: "Gameplay — menu in game." },
+    { type: "image", src: "img/ghost2.png", caption: "Gameplay — combat encounter using the sword combo system." },
+    { type: "image", src: "img/ghost3.png", caption: "Gameplay — ranged combat with the projectile weapon." },
+    { type: "image", src: "img/ghost5.png", caption: "Gameplay — using the dash ability." },
+    { type: "image", src: "img/ghost4.png", caption: "Gameplay — ranged combat with the projectile weapon and blink effect in enemies." },
+    { type: "image", src: "img/ghost6.png", caption: "Gameplay- using the double jump" }
   ]
 },  
 ];
