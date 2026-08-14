@@ -169,14 +169,14 @@ const PROJECTS = [
     Particle effects for combat, abilities and environmental feedback.</p>
   `,
   media: [
-    { type: "video", src: "videos/TWW_Combatvideo.mp4",     caption: "Melee combat — 3-hit sword combo." },
+    { type: "video", src: "videos/TWW_CombatVideo.mp4",     caption: "Melee combat — 3-hit sword combo." },
     { type: "video", src: "videos/TWW_Tutorial.mp4",    caption: "In-game tutorial sequence." },
     { type: "video", src: "videos/TWW_Combat2.mp4",     caption: "Melee combat — combo variations." },
-    { type: "video", src: "videos/TWW_Combat.mp4",     caption: "Melee combat — interactive projectiles hitting switches and enemies." },
+    { type: "video", src: "videos/TWW_Combat3.mp4",     caption: "Melee combat — interactive projectiles hitting switches and enemies." },
     { type: "video", src: "videos/TWW_Dash.mp4",        caption: "Dash mechanic." },
     { type: "video", src: "videos/TWW_LockEnemies.mp4",      caption: "Enemy AI in combat." },
-    { type: "video", src: "videos/TWW_enemy2.mp4",      caption: "Enemy AI — behavior showcase." },
-    { type: "video", src: "videos/TWW_enemy3.mp4", caption: "Target-lock system — gameplay." },
+    { type: "video", src: "videos/TWW_Enemy2.mp4",      caption: "Enemy AI — behavior showcase." },
+    { type: "video", src: "videos/TWW_Enemy3.mp4", caption: "Target-lock system — gameplay." },
     { type: "video", src: "videos/lock-blendtree.mp4", caption: "Target-lock system — 9-directional Blend Tree breakdown." }
   ]
 },  
