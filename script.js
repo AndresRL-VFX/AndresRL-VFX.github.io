@@ -193,7 +193,7 @@ title: "Eco Ocean",
   title: "Space Prison",
   subtitle: " Interactive Card Vuforia AR · Unity",
   category: "videogames",
-  thumb: "img/Anverso.png",
+  thumb: "img/Reverso.png",
   desc: `
    <p>An augmented reality minigame  built around a physical two-sided card.
     Using Vuforia, the camera recognizes which side of the card it's looking at and shows
@@ -214,8 +214,8 @@ title: "Eco Ocean",
   media: [
    { type: "video", src: "videos/VideoReverso.mp4", caption: "AR minigame side — the rocket launch starts the game, unlocking the shooter." },
    { type: "video", src: "videos/RenderFinalAnverso.mp4", caption: "AR business card side — my name and contact details displayed over the card." },
-   { type: "image", src: "img/Reverso.png", caption: "Back side of the card being tracked in AR." },
-   { type: "image", src: "img/Anverso.png", caption: "Front side of the card being tracked in AR." }
+   { type: "image", src: "img/Reverso.png", caption: "Front side of the card being tracked in AR." },
+   { type: "image", src: "img/Anverso.png", caption: "Back side of the card being tracked in AR" }
   ]
 },
 ];
