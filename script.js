@@ -191,7 +191,7 @@ title: "Eco Ocean",
 },  
 {
   title: "Space Prison",
-  subtitle: "Unity · Vuforia AR · Interactive Card Minigame",
+  subtitle: " Interactive Card Vuforia AR · Unity",
   category: "videogames",
   thumb: "img/Anverso.png",
   desc: `
