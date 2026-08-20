@@ -214,8 +214,8 @@ title: "Eco Ocean",
   media: [
    { type: "video", src: "videos/VideoReverso.mp4", caption: "AR minigame side — the rocket launch starts the game, unlocking the shooter." },
    { type: "video", src: "videos/RenderFinalAnverso.mp4", caption: "AR business card side — my name and contact details displayed over the card." },
-   { type: "image", src: "img/Reverso.png", caption: "Back side of the card being tracked in AR." }
-   { type: "image", src: "img/Anverso.png", caption: "Front side of the card being tracked in AR." }, 
+   { type: "image", src: "img/Reverso.png", caption: "Back side of the card being tracked in AR." },
+   { type: "image", src: "img/Anverso.png", caption: "Front side of the card being tracked in AR." }
   ]
 },
 ];
