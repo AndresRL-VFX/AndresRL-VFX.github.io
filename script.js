@@ -189,6 +189,31 @@ title: "Eco Ocean",
     { type: "image", src: "img/ghost6.png", caption: "Gameplay- using the double jump" }
   ]
 },  
+{
+  title: "Space Prison",
+  subtitle: "Unity · Vuforia AR · Interactive Card Minigame",
+  category: "videogames",
+  thumb: "img/Anverso.png",
+  desc: `
+    <p>An <strong>augmented reality minigame</strong> built around a physical two-sided card.
+    Using Vuforia, the camera recognizes which side of the card it's looking at — the front
+    or the back — and shows different content for each one.</p>
+
+    <p>On one side, tapping the rocket on the card plays a launch animation with particles
+    and sound. Once the rocket takes off, it unlocks a small survival shooter: enemies spawn
+    in waves and move around the level, and the player shoots them down while keeping track
+    of lives and score.</p>
+
+    <p>Reaching a high enough score rewards the player with a link to an external flipbook,
+    which can also be opened directly from a virtual button placed on the card itself.</p>
+  `,
+  media: [
+    { type: "video", src: "videos/RenderFinalAnverso.mp4", caption: "Front of the card: rocket launch sequence and the shooter minigame it unlocks." },
+    { type: "image", src: "img/Anverso.png", caption: "Front side of the card being tracked in AR." },
+    { type: "video", src: "videos/VideoReverso.mp4", caption: "Back of the card and its content." },
+    { type: "image", src: "img/Reverso.png", caption: "Back side of the card being tracked in AR." }
+  ]
+},
 ];
 
 /* Detect a local video file (mp4/webm/mov) vs a YouTube/Vimeo embed */
