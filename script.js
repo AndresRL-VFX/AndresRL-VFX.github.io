@@ -195,23 +195,27 @@ title: "Eco Ocean",
   category: "videogames",
   thumb: "img/Anverso.png",
   desc: `
-    <p>An <strong>augmented reality minigame</strong> built around a physical two-sided card.
-    Using Vuforia, the camera recognizes which side of the card it's looking at — the front
-    or the back — and shows different content for each one.</p>
+   <p>An augmented reality minigame  built around a physical two-sided card.
+    Using Vuforia, the camera recognizes which side of the card it's looking at and shows
+    different content for each one.</p>
 
-    <p>On one side, tapping the rocket on the card plays a launch animation with particles
-    and sound. Once the rocket takes off, it unlocks a small survival shooter: enemies spawn
-    in waves and move around the level, and the player shoots them down while keeping track
-    of lives and score.</p>
+    <p>One side holds the interactive experience: tapping the rocket on the card plays a
+    launch animation with particles and sound, and once it takes off it unlocks a small
+    survival shooter — enemies spawn in waves and move around the level while the player
+    shoots them down, keeping track of lives and score.</p>
 
-    <p>Reaching a high enough score rewards the player with a link to an external flipbook,
-    which can also be opened directly from a virtual button placed on the card itself.</p>
+    <p>The other side works as a personal AR business card, displaying my name, contact
+    email and other information directly over the card through the camera.</p>
+
+    <p>The project also runs as a standalone Android APK  — it's shown
+    here inside the Unity Editor simply for a clearer recording, but it works the same
+    way on mobile.</p>
   `,
   media: [
-    { type: "video", src: "videos/RenderFinalAnverso.mp4", caption: "Front of the card: rocket launch sequence and the shooter minigame it unlocks." },
-    { type: "image", src: "img/Anverso.png", caption: "Front side of the card being tracked in AR." },
-    { type: "video", src: "videos/VideoReverso.mp4", caption: "Back of the card and its content." },
-    { type: "image", src: "img/Reverso.png", caption: "Back side of the card being tracked in AR." }
+   { type: "video", src: "videos/VideoReverso.mp4", caption: "AR minigame side — the rocket launch starts the game, unlocking the shooter." },
+   { type: "video", src: "videos/RenderFinalAnverso.mp4", caption: "AR business card side — my name and contact details displayed over the card." },
+   { type: "image", src: "img/Reverso.png", caption: "Back side of the card being tracked in AR." }
+   { type: "image", src: "img/Anverso.png", caption: "Front side of the card being tracked in AR." }, 
   ]
 },
 ];
